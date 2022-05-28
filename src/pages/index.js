@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from "styled-components";
+import Head from '../components/Head';
 import Layout from '../components/Layout';
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
   return (
     <div class="container">
       <Layout>
+        <Head />
         <main>
           <h1>Hey, I'm Tarran! 👋</h1>
           <p>{meta.site.siteMetadata.description}</p>
