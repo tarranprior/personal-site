@@ -3,18 +3,18 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 function Footer() {
   
-    const meta = useStaticQuery(graphql`
-      query {
-        site {
-          siteMetadata {
-            author
-          }
+  const meta = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
         }
       }
-    `);
+    }
+  `);
 
     return (
-      <StyledFooter>
+      <footer>
         <p>
           © {new Date().getFullYear()} {meta.site.siteMetadata.author} &middot; Built with
           {` `}
@@ -23,7 +23,7 @@ function Footer() {
         <p>
           <a href="https://github.com/tarranprior/" target="_blank" rel="noreferrer">github</a>
         </p>
-      </StyledFooter>
+      </footer>
     )
   };
   

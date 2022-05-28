@@ -1,13 +1,25 @@
 import React from "react";
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout';
 
 export default function Home() {
+
+  const meta = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          description
+        }
+      }
+    }
+  `);
+
   return (
     <div class="container">
       <Layout>
         <main>
           <h1>Hey, I'm Tarran! 👋</h1>
-          <p>I'm passionate about open source, solving problems and collaborative innovation.<br/>I also work with data a lot.</p>
+          <p>{meta.site.siteMetadata.description}</p>
           <h3>Currently:</h3>
           <ul>
             <li>👨‍💻 I'm an aspiring security engineer living in beautiful <b>Wiltshire, UK</b></li>
