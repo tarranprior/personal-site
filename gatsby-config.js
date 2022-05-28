@@ -1,5 +1,8 @@
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'Tarran Prior',
+    author: 'Tarran Prior',
+  },
   plugins: [
     `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
