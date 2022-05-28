@@ -1,0 +1,21 @@
+{
+  "name": "personal-site",
+  "description": "Personal website of Tarran Prior.",
+  "version": "1.0.0",
+  "author": "Tarran Prior",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.15.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
