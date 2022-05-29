@@ -7,6 +7,7 @@ module.exports = {
       'Security Engineer',
       'Software Engineer',
       'Fullstack Developer',
+      'Cybersecurity',
       'Python',
       'Javascript',
       'Jamstack',
@@ -14,7 +15,6 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -22,7 +22,28 @@ module.exports = {
       options: {
         name: 'src',
         path: `${__dirname}/src/`
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              theme: "nord",
+            },
+          },
+        ],
       }
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'static/favicon.png' // Relative to the project's root folder
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };

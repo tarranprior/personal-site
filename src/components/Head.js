@@ -14,6 +14,10 @@ function Head(props) {
     }
   `);
 
+  if(props.title !== undefined)
+    return (
+      <Helmet title={`${meta.site.siteMetadata.title} - ${props.title}`} />
+    )
   return (
     <Helmet title={`${meta.site.siteMetadata.title}`} />
   )

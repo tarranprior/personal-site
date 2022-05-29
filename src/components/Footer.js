@@ -17,6 +17,9 @@ function Footer() {
   const StyledFooter = styled.footer`
     margin-top: 6rem;
     text-align: center;
+    p {
+      font-size: 14px;
+    }
   `;
 
     return (
@@ -24,7 +27,7 @@ function Footer() {
         <p>
           © {new Date().getFullYear()} {meta.site.siteMetadata.author} &middot; Built with
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>.
+          <a href="https://www.gatsbyjs.com" target="_blank" rel="noreferrer">Gatsby</a>.
         </p>
       </StyledFooter>
     )
