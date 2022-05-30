@@ -54,5 +54,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `roboto mono\:100,200,300,400,400i,500,600,700`,
+        ],
+      },
+    },
   ],
 };
