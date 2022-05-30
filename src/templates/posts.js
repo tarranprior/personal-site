@@ -22,9 +22,22 @@ const StyledDiv = styled.div`
   padding: 1rem;
   --deckgo-highlight-code-carbon-toolbar-display: none;
   --deckgo-highlight-code-carbon-box-shadow: none;
-  h1, h2, h3, h4, h5, h6, p, li {
+  p {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 1rem;
+  }
+  li {
+    padding: 0.5rem;
+  }
+  blockquote {
+    padding-left: 1.25rem;
+    border-left: 5px solid #c8cfd1;
+  }
+  hr {
+    margin-top: 2rem;
   }
   deckgo-highlight-code {
     margin-top: 1rem;
