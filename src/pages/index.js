@@ -13,7 +13,7 @@ export default function Home() {
           description
         }
       },
-      allMdx(filter: { frontmatter: { published: { eq: true } } }) {
+      allMdx(filter: { frontmatter: { published: { eq: true }}}, sort: {fields: [frontmatter___date], order: DESC}, ) {
         edges {
           node {
             frontmatter {
@@ -43,7 +43,8 @@ export default function Home() {
     }
   `
 
-  const StyledOrganisedList = styled.ol`
+  const StyledList = styled.ol`
+    margin-top: 1.75rem;
     list-style-type: none;
     li {
       margin-bottom: 0.75rem;
@@ -75,7 +76,7 @@ export default function Home() {
           </StyledCurrentList>
           <h2>Index of /public/Projects/</h2>
           <h2>Index of /public/Writing/</h2>
-          <StyledOrganisedList>
+          <StyledList>
             {meta.allMdx.edges.map((edge) => {
               return(
                 <li>
@@ -88,7 +89,7 @@ export default function Home() {
                 </li>
               )
             })}
-          </StyledOrganisedList>
+          </StyledList>
         </main>
       </Layout>
     </div>

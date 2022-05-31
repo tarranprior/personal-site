@@ -1,0 +1,77 @@
+---
+title: "Formatting Dates in Gatsby.js with GraphQL"
+author: "Tarran Prior"
+date: "2022-05-31 23:30"
+slug: "formatting-dates-in-gatsby-with-graphql"
+edit: "2022-05-31 23:30"
+reading: "2 min"
+published: true
+---
+
+One of the most efficient and straight-forward ways to format dates in Gatsby is at query-time, using Gatsby's built-in GraphQL data layer.
+
+```javascript
+{
+    date(formatString: "MMMM Do, YYYY")
+}
+```
+
+How does this work? Under the hood, Gatsby relies on [Moment.js](https://momentjs.com/docs/#/parsing/string-format/) to format dates. This "cleanses" and converts strings to date objects, and allows us to add parsing tokens to our queries.
+
+These parsing tokens can be thought of as a set of syntax rules, or more accurately - structured markup, which determines how our date string will be formatted.
+
+<br />
+
+> *Note: Parsing tokens are case-sensitive*.
+
+<br />
+
+For example, let's say we want to display the publish date of a blog post. Each post is written in markdown with a frontmatter variable called `date`, and a value that follows this format: "2021-01-01 01:00".
+
+Using the query above, we get the following output:
+
+```
+January 1st, 2021
+```
+
+---
+
+## Days
+
+Looking at the [docs](https://momentjs.com/docs/#/parsing/string-format/), there's also a token for displaying the day name, set by `moment.locale()`.
+
+```javascript
+{
+    date(formatString: "dddd MMMM Do, YYYY")
+}
+```
+
+This gives us the following result:
+
+```
+Friday January 1st, 2021
+```
+
+---
+
+## Timestamps
+
+Lastly, to add the timestamp, we can add the `hh:mma` token to our query.
+
+```javascript
+{
+    date(formatString: "dddd MMMM Do, YYYY hh:mma")
+}
+```
+
+Resulting in the following output:
+
+```
+January 1st, 2021 01:00am
+```
+
+---
+
+## Further Resources
+- [Gatsby GraphQL Reference - Formatting Dates](https://www.gatsbyjs.com/docs/conceptual/graphql-concepts/#formatting-dates)
+- [Moment.js Display Formats](https://momentjs.com/docs/#/displaying/format/)

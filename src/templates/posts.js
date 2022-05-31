@@ -10,10 +10,22 @@ export const pageQuery = graphql`
     mdx(slug: { eq: $slug }) {
       frontmatter {
         title
-        date
+        date(formatString: "dddd MMMM Do, YYYY hh:mma")
+        edit(formatString: "MMMM Do, YYYY hh:mma")
+        reading
       }
       body
     }
+  }
+`
+
+const StyledPostMeta = styled.ol`
+  margin: 0;
+  font-size: 14px;
+  list-style-type: none;
+  li {
+    display: inline;
+    padding-right: 1.5rem;
   }
 `
 
@@ -39,6 +51,13 @@ const StyledDiv = styled.div`
   hr {
     margin-top: 2rem;
   }
+  code {
+    padding: 0.25rem;
+    color: #000;
+    font-size: 14px;
+    background: #d8dee9;
+    border-radius: 4px;
+  }
   deckgo-highlight-code {
     margin-top: 1rem;
     margin-bottom: 2.5rem;
@@ -54,7 +73,12 @@ function Blog({ data }) {
         <Layout>
           <p><Link to="/">{backText}</Link></p>
           <h1>{data.mdx.frontmatter.title}</h1>
-          <p class="light">Publish Date: {data.mdx.frontmatter.date}</p>
+          <br/>
+          <StyledPostMeta>
+            <li>📅 {data.mdx.frontmatter.date}</li>
+            <li>📝 {data.mdx.frontmatter.edit}</li>
+            <li>☕ {data.mdx.frontmatter.reading}</li>
+          </StyledPostMeta>
           <StyledDiv>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </StyledDiv>

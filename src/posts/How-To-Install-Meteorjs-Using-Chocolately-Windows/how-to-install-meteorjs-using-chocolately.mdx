@@ -3,12 +3,16 @@ title: "How To Install Meteorjs Using Chocolatey (Windows Guide)"
 author: "Tarran Prior"
 date: "2019-05-30 13:37"
 slug: "how-to-install-meteorjs-using-chocolatey-windoze"
+edit: "2022-05-29 22:12"
+reading: "5 min"
 published: true
 ---
 
-[Meteor](https://www.meteor.com/) is a powerful, open source and **full-stack JavaScript framework** built on Node.js for seamlessly building and deploying **cross-platform** applications on the web, mobile, and desktop.
+[Meteor](https://www.meteor.com/) is a powerful, open source and **full-stack JavaScript framework** built on top of Node.js for seamlessly building and deploying **cross-platform** applications on the web, mobile, and desktop.
 
-![Meteor.js](./meteor-choco.png)
+![Meteor.js](./meteor-choco.png)<br/>
+
+In this guide, we'll walk through the complete installation process for Meteor.js on your Windows machine. From start to finish, using the Chocolatey package installer.
 
 > ## Important Notice - Use NPM!
 > **You're now able to install Meteor.js with npm!**<br/>
@@ -20,20 +24,20 @@ published: true
 > npm install -g meteor
 > ```
 > This will safely install the latest version so you can enjoy all of the latest features.
+> You can check out the full [docs here](https://docs.meteor.com/install.html).
 
 ## 1 - System Requirements
 Before you start the installation, ensure that your system meets the following requirements:
-- **Windows 7+** or **Windows Server 2008+**
-- **PowerShell Version 2.0+**
-- [**.NET Framework 4+**](https://dotnet.microsoft.com/en-us/download/dotnet-framework) (The installation will attempt to install .NET 4.0 if you don't already have it installed.)
+- Windows **7+** / Windows Server **2008+**
+- PowerShell Version **2.0+**
+- [.NET Framework **4+**](https://dotnet.microsoft.com/en-us/download/dotnet-framework) (The installation will attempt to install .NET 4.0 if you don't already have it installed.)
 
 ---
 
 ## 2 - Installing Chocolatey
-In order to install Meteor, we’re first going to need to install another
-package known as **Chocolatey**.
+In order to install Meteor, we’re first going to need to install a package installer known as **Chocolatey**.
 
-[Chocolatey](https://community.chocolatey.org/) is `apt-get` for Windows, and allows you to build and install full software deployments using the Windows command line.
+[Chocolatey](https://community.chocolatey.org/) can be thought of as `apt-get` for Windows, as it allows you to build and install full software deployments using the Windows command line.
 
 To install Chocolatey, start by opening an administrative shell. This means opening **PowerShell** with **administrator privileges**.
 
@@ -73,7 +77,7 @@ above, see the [Troubleshooting](https://docs.chocolatey.org/en-us/troubleshooti
 ## 3 - Installing Meteor
 After installing Chocolatey, you’re now able to install Meteor. Finally!
 
-Now you've got access to the `choco` - it's as simple as:
+Now you've got access to `choco` - it's as simple as:
 
 ```
 choco install meteor
