@@ -57,6 +57,11 @@ const GlobalStyles = createGlobalStyle`
   p {
     font-size: 16px;
   }
+  
+  .small {
+    margin-top: 1.25rem;
+    font-size: 14px;
+  }
 
   a,
   a:visited {

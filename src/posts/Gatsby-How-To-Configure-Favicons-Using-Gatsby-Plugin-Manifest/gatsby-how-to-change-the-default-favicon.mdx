@@ -1,0 +1,63 @@
+---
+title: "Gatsby.js - How To Configure Favicons Using Gatsby-Manifest-Plugin"
+author: "Tarran Prior"
+date: "2022-06-01 17:00"
+slug: "gatsby-configure-favicons-using-gatsby-manifest-plugin"
+edit: "2022-06-01 17:00"
+reading: "2 min"
+tags: ["Gatsby"]
+published: true
+---
+
+![Gatsby Feature](./gatsby-feature.png)
+
+<br />
+
+To add our own favicon, we're going to use a plugin called `gatsby-manifest-plugin`.
+
+This plugin enables, constructs and deploys [web app manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest). These manifests provide all of the necessary information (such as your site's title, description, icon information etc.) for users to be able to download and 'install' your site to their device, and present it as if it were a native application.
+
+### Why are we using it?
+
+Straight out the box, this plugin includes a bunch of goodies beyond the scope of manifest configuration - including both favicon support and auto icon generation. In other words, it makes both our lives as developers, and our users' lives a lot easier.
+
+## Installation / Configuration
+1. To install `gatsby-manifest-plugin`, start by running the following from your project's root directory:
+
+```bash
+npm install --save gatsby-plugin-manifest
+```
+
+2. Next, add the plugin to your `gatsby-config.js` file and specify a path for your icon.<br /><br />By default, this is set to `src/images/gatsby-icon.png` - but you can choose any path you like.<br/><br/>
+For example, I'll use Gatsby's default favicon path.
+
+```javascript
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'static/favicon.ico' // Relative to the project's root folder
+      },
+    },
+  ],
+};
+```
+
+3. Lastly, add your favicon file in the specified path and voila! You've added your own favicon. Simply perform a `gatsby clean` and restart the development server to see your new icon in action.
+
+> - Your favicon should be at least 512x512 pixels (or as big as the largest generated icon - 512x512 by default.)
+> - The plugin supports the following formats: JPEG, PNG, WebP, TIFF, GIF or SVG.
+
+<br />
+
+To view your site's manifest, launch your website and go to *Developer Tools > Application > Manifest*.
+
+<br />
+
+![Favicon Previews](./favicon-previews.png)
+
+## Further Resources
+- [Gatsby-Plugin-Manifest](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/)
+- [MDN - Web App Manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+- [MDN - Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)

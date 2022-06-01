@@ -1,5 +1,3 @@
-  <br/>
-  <p align="center"><img src="https://raw.githubusercontent.com/tarranprior/personal-site/main/static/favicon.png" width="64" /></p>
   <h1 align="center">Personal Site</h1>
   <p align="center">My ever-changing personal website and mediocre blog at best. Built with Gatsby, MDX and styled-components.</p>
 

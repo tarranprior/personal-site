@@ -71,7 +71,7 @@ function Blog({ data }) {
       <Head title={data.mdx.frontmatter.title} />
       <div class="container">
         <Layout>
-          <p><Link to="/">{backText}</Link></p>
+          <p class="small"><Link to="/">{backText}</Link></p>
           <h1>{data.mdx.frontmatter.title}</h1>
           <br/>
           <StyledPostMeta>

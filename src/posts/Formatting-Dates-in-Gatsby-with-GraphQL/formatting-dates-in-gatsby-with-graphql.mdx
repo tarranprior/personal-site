@@ -5,6 +5,7 @@ date: "2022-05-31 23:30"
 slug: "formatting-dates-in-gatsby-with-graphql"
 edit: "2022-05-31 23:30"
 reading: "2 min"
+tags: ["Gatsby", "GraphQL"]
 published: true
 ---
 
@@ -34,8 +35,6 @@ Using the query above, we get the following output:
 January 1st, 2021
 ```
 
----
-
 ## Days
 
 Looking at the [docs](https://momentjs.com/docs/#/parsing/string-format/), there's also a token for displaying the day name, set by `moment.locale()`.
@@ -52,8 +51,6 @@ This gives us the following result:
 Friday January 1st, 2021
 ```
 
----
-
 ## Timestamps
 
 Lastly, to add the timestamp, we can add the `hh:mma` token to our query.
@@ -69,8 +66,6 @@ Resulting in the following output:
 ```
 January 1st, 2021 01:00am
 ```
-
----
 
 ## Further Resources
 - [Gatsby GraphQL Reference - Formatting Dates](https://www.gatsbyjs.com/docs/conceptual/graphql-concepts/#formatting-dates)

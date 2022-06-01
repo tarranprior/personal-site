@@ -49,6 +49,9 @@ export default function Home() {
     li {
       margin-bottom: 0.75rem;
     }
+    h4 {
+      font-weight: 500;
+    }
     p {
       font-size: 14px;
       color: #777;
@@ -70,18 +73,24 @@ export default function Home() {
           <StyledCurrentList>
             <li>👨‍💻 I'm an aspiring security engineer living in beautiful <b>Wiltshire, UK</b></li>
             <li>🏢 installing <b>secure and scalable IT infrastructure</b> for local businesses,</li>
-            <li>🛠️ building <b>community-driven bots</b> @ <b><a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a></b> plus some <b>OSINT tools</b>,</li>
+            <li>🛠️ building <b>community-driven bots</b> @ <b><a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a></b>,</li>
             <li>💾 <b>preserving files</b> and discussing data with the good people @ <b><a href="https://old.reddit.com/r/DataHoarder" target="_blank" rel="noreferrer">r/DataHoarder</a></b>,</li>
             <li>🌱 learning <b>Go</b>, <b>Reverse Engineering</b> and <b>React Native Development</b>.</li>
           </StyledCurrentList>
           <h2>Index of /public/Projects/</h2>
+          <StyledList>
+            <li>
+              <h4>📁 <a href="https://github.com/tarranprior/discord-rotten-soup" target="_blank" rel="noreferrer">/discord-rotten-soup/</a></h4>
+              <p>Rotten Soup is a Discord tool which scrapes and displays information about Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
+            </li>
+          </StyledList>
           <h2>Index of /public/Writing/</h2>
           <StyledList>
             {meta.allMdx.edges.map((edge) => {
               return(
                 <li>
                   <h4>
-                    <Link to={`writing/${edge.node.frontmatter.slug}`}>
+                    📄 <Link to={`writing/${edge.node.frontmatter.slug}`}>
                       {edge.node.frontmatter.title}/
                     </Link>
                   </h4>
