@@ -78,14 +78,18 @@ export default function Home() {
             <li>💾 <b>preserving files</b> and discussing data with the good people @ <b><a href="https://old.reddit.com/r/DataHoarder" target="_blank" rel="noreferrer">r/DataHoarder</a></b>,</li>
             <li>📚 learning <b>Go</b> and <b>Reverse Engineering</b>.</li>
           </StyledCurrentList>
-          <h2>Index of /public/Projects/</h2>
+          <h2>Index of /public/recent/Projects/</h2>
           <StyledList>
             <li>
-              <h4>📁 <a href="https://github.com/tarranprior/discord-rotten-soup" target="_blank" rel="noreferrer">/RottenSoup/</a></h4>
-              <p>Rotten Soup is a Discord tool which scrapes and displays information about Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
+              <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">/Disclone/</a></h4>
+              <p>Disclone is a bot with Rclone integration, Google Drive automation and Gclone capabilities.<br/><br/></p>
+            </li>
+            <li>
+              <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">/Runebot/</a></h4>
+              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
             </li>
           </StyledList>
-          <h2>Index of /public/Writing/</h2>
+          <h2>Index of /public/recent/Writing/</h2>
           <StyledList>
             {meta.allMdx.edges.map((edge) => {
               return(

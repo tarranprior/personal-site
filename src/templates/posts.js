@@ -82,6 +82,7 @@ function Blog({ data }) {
           <StyledDiv>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </StyledDiv>
+          <p class="small"><Link to="/">{backText}</Link></p>
         </Layout>
       </div>
     </>

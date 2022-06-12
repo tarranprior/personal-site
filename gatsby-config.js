@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Tarran Prior',
-    description: "I'm passionate about open source, solving problems, animal rights and collaborative innovation. I also work with data a lot.",
+    description: "I'm passionate about open source, solving problems and collaborative innovation. I also work with data a lot.",
     author: 'Tarran Prior',
     keywords: [
       'Security Engineer',
