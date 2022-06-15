@@ -41,23 +41,21 @@ export default function Home() {
       padding: 1rem;
       display: inline;
     }
-  `
+  `;
 
   const StyledList = styled.ol`
     margin-top: 1.75rem;
     list-style-type: none;
-    li {
-      margin-bottom: 0.75rem;
-    }
     h4 {
       font-weight: 500;
     }
     p {
-      margin-bottom: 0.75rem;
+      max-width: 720px;
+      margin-bottom: 1.25rem;
       font-size: 14px;
       color: #777;
     }
-  `
+  `;
 
   return (
     <div class="container">
@@ -82,11 +80,19 @@ export default function Home() {
           <StyledList>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">/Disclone/</a></h4>
-              <p>Disclone is a bot with Rclone integration, Google Drive automation and Gclone capabilities.<br/><br/></p>
+              <p>Disclone is a self-hostable bot with Rclone integration, Google Drive automation and Gclone capabilities.</p>
+            </li>
+            <li>
+              <h4>📁 <a href="https://github.com/tarranprior/scrapers" target="_blank" rel="noreferrer">/scrapers/</a></h4>
+              <p>Various web scrapers built with Python. Made with the intention of data archival and preservation.</p>
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">/Runebot/</a></h4>
-              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
+              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about OSRS (Old School RuneScape). Built with Python and Beautiful Soup 4.</p>
+            </li>
+            <li>
+              <h4>📁 <a href="https://github.com/tarranprior/personal-site" target="_blank" rel="noreferrer">/personal-site/</a></h4>
+              <p>The page you're looking at! My ever-changing personal website and mediocre blog at best. Built with Gatsby, MDX and styled-components.</p>
             </li>
           </StyledList>
           <h2>Index of /public/recent/Writing/</h2>

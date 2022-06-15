@@ -16,7 +16,7 @@ function Head(props) {
 
   if(props.title !== undefined)
     return (
-      <Helmet title={`${meta.site.siteMetadata.title} - ${props.title}`} />
+      <Helmet title={`${props.title} — ${meta.site.siteMetadata.title}`} />
     )
   return (
     <Helmet title={`${meta.site.siteMetadata.title}`} />

@@ -37,8 +37,10 @@ const StyledDiv = styled.div`
   p {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    line-height: 1.75;
   }
   h1, h2, h3, h4, h5, h6 {
+    padding-top: 1rem;
     padding-bottom: 1rem;
   }
   li {
@@ -61,6 +63,7 @@ const StyledDiv = styled.div`
   deckgo-highlight-code {
     margin-top: 1rem;
     margin-bottom: 2.5rem;
+    font-size: 16px;
   }
 `
 
