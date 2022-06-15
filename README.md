@@ -1,11 +1,11 @@
+  <p align="center"><img src="https://github.com/tarranprior/personal-site/blob/main/static/favicon.png" width="64px" /></p>
+  
   <h1 align="center">Personal Site</h1>
   <p align="center">My ever-changing personal website and mediocre blog at best. Built with Gatsby, MDX and styled-components.</p>
 
   <a href="https://www.gatsbyjs.com/"><p align="center">![Python](https://img.shields.io/badge/built%20with-Gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=white)</a>
   <a href="https://tarran-prior.netlify.app/">![Netlify](https://img.shields.io/badge/Netlify-Success-C9EEEB?style=for-the-badge&logo=netlify&logoColor=white)</a>
   <a href="https://github.com/tarranprior/personal-site/blob/main/LICENSE">![License](https://img.shields.io/badge/license-BSD%20Zero%20Clause-663399?style=for-the-badge)</a><br/><br/><br/>
-  <img src="https://raw.githubusercontent.com/tarranprior/personal-site/main/static/demo.png" width="900">
-
   </p>
 
 ## References
