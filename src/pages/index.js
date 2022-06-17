@@ -50,7 +50,7 @@ export default function Home() {
       font-weight: 500;
     }
     p {
-      max-width: 720px;
+      max-width: 800px;
       margin-bottom: 1.25rem;
       font-size: 14px;
       color: #777;
@@ -70,9 +70,8 @@ export default function Home() {
           </StyledSocialList>
           <h3>Currently:</h3>
           <StyledCurrentList>
-            <li>👨‍💻 I'm an aspiring security engineer living in beautiful <b>Wiltshire, UK</b></li>
-            <li>🏢 installing <b>secure and scalable IT infrastructure</b> for local businesses,</li>
-            <li>🛠️ building <b>community-driven bots</b> for <b><a href="https://discord.com/" target="_blank" rel="noreferrer">Discord</a></b>,</li>
+            <li>👨‍💻 I'm a cyber security professional living in beautiful <b>Wiltshire, UK</b></li>
+            <li>🛠️ building and maintaining <b>open-source software and offensive tools</b>,</li>
             <li>💾 <b>preserving files</b> and discussing data with the good people @ <b><a href="https://old.reddit.com/r/DataHoarder" target="_blank" rel="noreferrer">r/DataHoarder</a></b>,</li>
             <li>📚 learning <b>Go</b> and <b>Reverse Engineering</b>.</li>
           </StyledCurrentList>
@@ -80,7 +79,7 @@ export default function Home() {
           <StyledList>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">/Disclone/</a></h4>
-              <p>Disclone is a self-hostable bot with Rclone integration, Google Drive automation and Gclone capabilities.</p>
+              <p>Disclone is a self-hostable bot with Rclone integration, Gclone support and Google Drive automation utilities for collaborative cloud storage management.</p>
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/scrapers" target="_blank" rel="noreferrer">/scrapers/</a></h4>
@@ -88,11 +87,7 @@ export default function Home() {
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">/Runebot/</a></h4>
-              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about OSRS (Old School RuneScape). Built with Python and Beautiful Soup 4.</p>
-            </li>
-            <li>
-              <h4>📁 <a href="https://github.com/tarranprior/personal-site" target="_blank" rel="noreferrer">/personal-site/</a></h4>
-              <p>The page you're looking at! My ever-changing personal website and mediocre blog at best. Built with Gatsby, MDX and styled-components.</p>
+              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
             </li>
           </StyledList>
           <h2>Index of /public/recent/Writing/</h2>

@@ -43,13 +43,6 @@ This will generate and install all of the necessary files required to run your a
 
 > Meteor comes with npm bundled so that you can type `meteor npm` without worrying about installing it yourself. If you like, you can also use a globally installed npm to manage your packages.
 
-### Troubleshooting
-If your app gets stuck or doesn't appear to be updating (particularly when installing npm dependencies) - perform the following: 
-- In the same console, hit `Ctrl + C` to cancel the job. If this doesn't work, close the window.
-- Open a new console and navigate to your app directory. Meteor creates all the necessary project files before the operation completes, so everything should still be intact.
-- Run `meteor npm install`.
-- Lastly, run `meteor` or `meteor run` to start up the development server.
-
 <br/>
 
 Once complete, you'll see the following output:
@@ -66,12 +59,18 @@ Our app is running! Meteor uses port 3000 by default, so we can go to localhost:
 
 > If you'd like to change the default port for your app, you can use `meteor -p <xxxx>`.
 
+### Troubleshooting
+If your app gets stuck or doesn't appear to be updating (particularly when installing npm dependencies) - perform the following: 
+- In the same console, hit `Ctrl + C` to cancel the job. If this doesn't work, close the window.
+- Open a new console and navigate to your app directory. Meteor creates all the necessary project files before the operation completes, so everything should still be intact.
+- Run `meteor npm install`.
+- Lastly, run `meteor` or `meteor run` to start up the development server.
+
 ## Application Structure
 
 ### What's In The Box?
 So what do we get with a fresh, barebones Meteor project? Let's take a look at the project's directory.
-
-```
+```bash
 .meteor/
 client/
 node_modules/
@@ -86,8 +85,7 @@ There are two notable folders here. Namely, the `client/` and `server/` folders.
 
 ### Client
 In the client folder, we have all of our client-side code. As the name implies, these files are exclusive to the client, and include your basic front-end stuff like markup and styles.
-
-```
+```bash
 client/
   main.css
   main.html
@@ -96,8 +94,7 @@ client/
 
 ### Server
 Similarly, the `server/` directory contains files that are only available on the server.
-
-```
+```bash
 server/
   main.js
 ```

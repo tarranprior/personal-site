@@ -34,6 +34,7 @@ module.exports = {
             resolve: `gatsby-remark-highlight-code`,
             options: {
               theme: "nord",
+              lineNumbers: true,
             },
           },
           {

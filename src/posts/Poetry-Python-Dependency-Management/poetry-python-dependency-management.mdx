@@ -1,0 +1,117 @@
+---
+title: "Poetry - An Introduction To Python Dependency Management"
+author: "Tarran Prior"
+date: "2022-05-12 14:30"
+slug: "poetry-introduction-to-python-dependency-management"
+edit: "2022-06-17 20:56"
+reading: "5 min"
+tags: ["Python", "Poetry"]
+published: true
+---
+
+Poetry is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and will manage (install/update) them for you.
+
+## Installing Poetry
+For a more comprehensive and complete guide on Poetry installation, visit the official [documentation](https://python-poetry.org/docs/#installation). Here you can find a lot more further information, such as troubleshooting tips and alternative installation options.
+
+For this guide, we're sticking to the standard installs recommended by the developers.
+
+### Linux, OSX etc.
+For *nix systems - you can install Poetry by executing the following command in your preferred terminal:
+```bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+
+### Windows
+
+If you're using Windows, you're able to install Poetry by using PowerShell:
+```bash
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+```
+> Poetry automatically picks up the current Python version on your machine and will use it to `create virtualenvs` accordingly.
+
+<br /><br />
+
+To verify if poetry has been installed correctly, check the version by running:
+```bash
+poetry --version
+```
+
+## Creating Our First Project
+Once we have Poetry installed, we can begin creating our first Poetry initialised project. To do so, simply use:
+```
+poetry new our-first-project --src
+```
+
+> I'm using the name `our-first-project` as an example for this post, but feel free to pick your own. <br /><br />
+> Using the `--src` flag also ensures that Poetry creates our project inside a `./src` folder.
+
+<br />
+
+This generates some boilerplate content with the following project tree structure:
+```bash
+our-first-project
+├── src
+│   └── __init__.py
+├── pyproject.toml
+├── README.rst
+└── tests
+    ├── __init__.py
+    └── test_our_first_project.py
+```
+
+Pretty conventional stuff, but the most notable file here is `pyproject.toml`.
+
+This is the file Poetry uses to orchestrate and keep track of our project's info, the version of Python we're using, our development dependencies and other external packages.
+
+## Initialising Pre-Existing Projects
+Poetry can also be used to initialise a pre-populated directory.
+```bash
+cd pre-existing-project
+poetry init
+```
+
+Then we simply use `poetry install` to create a virtual environment and install all existing dependencies.
+
+## Specifying Dependencies
+Now we have a project setup, we can start specifying the dependencies our project will use.
+
+### Adding New Dependencies
+To add a new dependency, we can use the `poetry add` command.
+
+This writes the package to `pyproject.toml`, creates and writes to a package lock file (`poetry.lock`) and installs the package to our new virtual environment, which Poetry will create if one isn't already active.
+```
+poetry add pandas
+```
+
+We're also able to manually edit the `pyproject.toml` file to specify new dependencies under the `tool.poetry.dependencies` section, then using `poetry install` to install them.
+```
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.4.2"
+```
+
+<br />
+
+### Removing Existing Dependencies
+If you'd like to remove a dependency - it's as simple as using `poetry remove`.
+
+Again, this will remove the dependency(s) from the package files - and clean up any other unused dependencies of that dependency.
+```
+poetry remove pandas
+```
+
+You're also able to add/remove multiple dependencies at once by simply adding them in a sequence.
+```
+poetry remove pandas numpy
+```
+
+<br />
+
+### Updating Dependencies
+To update your dependencies, use `poetry update`:
+```
+poetry update pandas
+```
+
+This'll fetch and update all your dependencies to their latest versions (according to your `pyproject.toml` file) amd overwrites the `poetry.lock` file keeping your project up to date.
