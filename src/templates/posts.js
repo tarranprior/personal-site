@@ -10,9 +10,10 @@ export const pageQuery = graphql`
     mdx(slug: { eq: $slug }) {
       frontmatter {
         title
-        date(formatString: "dddd MMMM Do, YYYY hh:mma")
-        edit(formatString: "MMMM Do, YYYY hh:mma")
+        date(formatString: "dddd MMMM Do, YYYY")
+        edit(formatString: "MMMM Do, YYYY")
         reading
+        tags
       }
       body
     }
@@ -81,6 +82,7 @@ function Blog({ data }) {
             <li>📅 {data.mdx.frontmatter.date}</li>
             <li>📝 {data.mdx.frontmatter.edit}</li>
             <li>☕ {data.mdx.frontmatter.reading}</li>
+            <ll>🏷️ {data.mdx.frontmatter.tags.join(', ')}</ll>
           </StyledPostMeta>
           <StyledDiv>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>

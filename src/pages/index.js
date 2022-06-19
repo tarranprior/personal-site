@@ -20,6 +20,7 @@ export default function Home() {
               date
               title
               slug
+              tags
             }
           }
         }
@@ -54,6 +55,16 @@ export default function Home() {
       margin-bottom: 1.25rem;
       font-size: 14px;
       color: #777;
+    }
+    .metadata {
+      padding-bottom: 1rem;
+      p {
+        margin-right: 1rem;
+        display: inline;
+      }
+      .tags {
+        font-weight: 500;
+      }
     }
   `;
 
@@ -100,7 +111,10 @@ export default function Home() {
                       {edge.node.frontmatter.title}/
                     </Link>
                   </h4>
-                  <p>{edge.node.frontmatter.date}</p>
+                  <div class="metadata">
+                    <p>{edge.node.frontmatter.date}</p>
+                    <p class="tags">{edge.node.frontmatter.tags.join(', ')}</p>
+                  </div>
                 </li>
               )
             })}
