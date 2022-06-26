@@ -31,7 +31,7 @@ export default function Home() {
   const StyledCurrentList = styled.ul`
     list-style-type: none;
     li {
-      margin-bottom: 0.75rem;
+      margin-bottom: .75rem;
     }
   `;
 
@@ -39,7 +39,7 @@ export default function Home() {
   list-style-type: none;
   font-size: 14px;
     li {
-      padding: 1rem;
+      padding: .5rem;
       display: inline;
     }
   `;
@@ -54,7 +54,7 @@ export default function Home() {
       max-width: 800px;
       margin-bottom: 1.25rem;
       font-size: 14px;
-      color: #777;
+      color: #444;
     }
     .metadata {
       padding-bottom: 1rem;
@@ -76,13 +76,15 @@ export default function Home() {
           <h1>Hey, I'm Tarran! 👋</h1>
           <p>{meta.site.siteMetadata.description}</p>
           <StyledSocialList>
-            <li><a href="https://github.com/tarranprior" target="_blank" rel="noreferrer">GitHub</a></li>|
+            <li><a href="https://github.com/tarranprior" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li>•</li>
             <li><a href="mailto:tarranprior@protonmail.com" target="_blank" rel="noreferrer">Email</a></li>
           </StyledSocialList>
           <h3>Currently:</h3>
           <StyledCurrentList>
-            <li>👨‍💻 I'm a cyber security professional living in beautiful <b>Wiltshire, UK</b></li>
-            <li>🛠️ building and maintaining <b>open-source software and offensive tools</b>,</li>
+            <li>👨‍💻 I'm a <b>cyber security</b> professional living in beautiful <b>Wiltshire, UK</b></li>
+            <li>🏢 installing <b>IT infrastructure</b> and <b>providing support</b> for local businesses,</li>
+            <li>🛠️ building and maintaining <b>open-source software</b> and <b>offensive tools</b>,</li>
             <li>💾 <b>preserving files</b> and discussing data with the good people @ <b><a href="https://old.reddit.com/r/DataHoarder" target="_blank" rel="noreferrer">r/DataHoarder</a></b>,</li>
             <li>📚 learning <b>Go</b> and <b>Reverse Engineering</b>.</li>
           </StyledCurrentList>

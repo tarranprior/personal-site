@@ -9,6 +9,7 @@ function Head(props) {
       site {
         siteMetadata {
           title
+          lang
         }
       }
     }
@@ -16,10 +17,10 @@ function Head(props) {
 
   if(props.title !== undefined)
     return (
-      <Helmet title={`${props.title} — ${meta.site.siteMetadata.title}`} />
+      <Helmet title={`${props.title} — ${meta.site.siteMetadata.title}`} htmlAttributes={{lang: meta.site.siteMetadata.lang}} />
     )
   return (
-    <Helmet title={`${meta.site.siteMetadata.title}`} />
+    <Helmet title={`${meta.site.siteMetadata.title}`} htmlAttributes={{lang: meta.site.siteMetadata.lang}} />
   )
 };
 

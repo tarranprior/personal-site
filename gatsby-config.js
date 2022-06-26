@@ -3,6 +3,7 @@ module.exports = {
     title: 'Tarran Prior',
     description: "I'm passionate about open source, solving problems and collaborative innovation. I also work with data a lot.",
     author: 'Tarran Prior',
+    lang: 'en',
     keywords: [
       'Security Engineer',
       'Software Engineer',

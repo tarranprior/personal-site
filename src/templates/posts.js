@@ -45,7 +45,12 @@ const StyledDiv = styled.div`
     padding-bottom: 1rem;
   }
   li {
-    padding: 0.5rem;
+    padding: .75rem;
+  }
+  ol {
+    li {
+      padding: .25rem;
+    }
   }
   blockquote {
     padding-left: 1.25rem;
@@ -55,16 +60,22 @@ const StyledDiv = styled.div`
     margin-top: 2rem;
   }
   code {
-    padding: 0.25rem;
-    color: #000;
+    padding: .25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    color: #2e3440;
     font-size: 14px;
     background: #d8dee9;
     border-radius: 4px;
+    line-height: 1.75;
   }
   deckgo-highlight-code {
     margin-top: 1rem;
     margin-bottom: 2.5rem;
     font-size: 16px;
+  }
+  img {
+    height: inherit !important;
   }
 `
 
