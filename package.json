@@ -23,6 +23,7 @@
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-plugin-styled-components": "^5.15.0",
+    "gatsby-remark-autolink-headers": "^5.17.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-highlight-code": "^3.2.0",
     "gatsby-remark-images": "^6.15.0",
