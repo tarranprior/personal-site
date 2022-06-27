@@ -46,6 +46,13 @@ module.exports = {
               quality: 75,
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "nofollow"
+            },
+          },
         ],
       }
     },

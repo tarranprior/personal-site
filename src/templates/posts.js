@@ -102,7 +102,6 @@ function Blog({ data }) {
         </Layout>
       </div>
     </>
-    
   )
 };
 
