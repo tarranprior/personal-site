@@ -3,9 +3,9 @@ title: "Active Directory Homelab Using Local Virtualisation & PowerShell Automat
 author: "Tarran Prior"
 date: "2022-06-18 17:15"
 slug: "active-directory-homelab-using-virtualisation-powershell-automation"
-edit: "2022-06-24 08:19"
+edit: "2022-06-24 20:19"
 reading: "14 min"
-tags: ["Windows", "Active Directory"]
+tags: ["Active Directory", "Windows"]
 published: true
 ---
 
@@ -49,7 +49,7 @@ Today, virtualisation is common practice in information technology architecture,
 3. [Configuring Server Network Adapters](#3---configuring-server-network-adapters)
 4. [Installing Active Directory Domain Services](#4---installing-active-directory-domain-services)
 5. [Create Domain Administrator Account](#5---create-domain-administrator-account)
-6. [Installing & Configuring RAS/NAS](#6---installing--configuring-ras-nat)
+6. [Installing & Configuring RAS/NAT](#6---installing--configuring-rasnat)
 7. [Installing & Configuring DHCP Server](#7---installing--configuring-dhcp-server)
 8. [Disable Internet Browsing Security Configuration](#8---disable-internet-browsing-security-configuration)
 9. [PowerShell Automation & Scripting](#9---powerShell-automation--scripting)
@@ -72,7 +72,7 @@ You can download the latest version of VirtualBox [here](https://www.virtualbox.
 - https://www.virtualbox.org/wiki/Downloads
 
 ### 💿 Windows 10 Enterprise Evaluation
-The next step is to grab our fresh evaluation copy of Windows 10. Visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise) and simply click "*download the ISO*".
+The next step is to grab our fresh evaluation copy of Windows 10. Visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise) and simply click "download the ISO".
 
 - https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
 
@@ -96,12 +96,12 @@ Again, complete the short form and click the download button.
 #### Extra Sidenote
 To prevent any ambiguity, it's also a good idea to rename our image files to distinguishable filenames, and ensuring they're stored in the same directory.
 
-For example: `WINDOWS_10_ENTERPRISE_EVAL.iso` and `WINDOWS_SERVER_2019_EVAL.iso` in our downloads directory (*C:/Users/User/Downloads*.)
+For example: `WINDOWS_10_ENTERPRISE_EVAL.iso` and `WINDOWS_SERVER_2019_EVAL.iso` in our downloads directory (C:/Users/User/Downloads.)
 
 ## 1 - Setup & Installation of Windows Server
 Once VirtualBox is installed and we have our copy of Windows Server, let's begin by setting up our virtual environment. This involves setting up our server machine, acting as the domain controller.
 
-**Step 1**: Open VirtualBox and click the 'New' button which will open a new window.
+**Step 1**: Open VirtualBox and click the "New" button which will open a new window.
 
 From here, we can choose a name for the machine. Since we're using this as our domain controller, we can choose something like `DC-DomainController`.
 
@@ -119,15 +119,15 @@ We also set the type to Microsoft Windows, and the version to Windows 2019 (64-b
 
 **Step 3**: From here, you're able to freely click next - keeping all default settings until the setup is complete.
 
-**Step 4**: The next step is to configure the system settings of our machine. Start by clicking *Settings > Advanced*.
+**Step 4**: The next step is to configure the system settings of our machine. Start by clicking "Settings" > "Advanced".
 
-Then set both *Shared Clipboard* and *Drag'n'Drop* to *Bidirectional*.
+Then set both "Shared Clipboard" and "Drag'n'Drop" to "Bidirectional".
 
 ![VirtualBox Server Settings > General > Advanced](./virtualbox-settings-general-advanced.png)
 
 <br />
 
-Next, go to *System > Processor*.
+Next, go to "System" > "Processor".
 
 Here we can specify how many cores we would like to allocate to our machine. In this instance I'll go with two cores.
 
@@ -135,21 +135,21 @@ Here we can specify how many cores we would like to allocate to our machine. In 
 
 <br />
 
-Finally, go to *Network > Adapter 2* and enable it by clicking the checkbox. This'll enable the dropdown, in which we'll select `Internal Network`.
+Finally, go to "Network" > "Adapter 2" and enable it by clicking the checkbox. This'll enable the dropdown, in which we'll select "Internal Network".
 
 ![VirtualBox Server Settings > Network > Adapter](./virtualbox-settings-general-adapter.png)
 
 <br />
 
-Click *OK* to save these settings and close the window.
+Click OK to save these settings and close the window.
 
-**Step 5**: Fire up the machine by selecting it and clicking *Start* (or simply double click.)
+**Step 5**: Fire up the machine by selecting it and clicking Start (or simply double click.)
 
 You'll be prompted to select a start-up disk.
 
-This is where we select our **Windows Server 2019** file. Click the small folder icon, click *Add* and browse to the directory where you downloaded your files.
+This is where we select our **Windows Server 2019** file. Click the small folder icon, click "Add" and browse to the directory where you downloaded your files.
 
-Open the Windows Server 2019 ISO, then click *Choose*. Finally, click *Start* to select the disk.
+Open the Windows Server 2019 ISO, then click Choose. Finally, click Start to select the disk.
 
 ![VirtualBox Server > Start-up Disk](./virtualbox-server-select-startup-disk.png)
 
@@ -163,7 +163,7 @@ Go through the installation wizard, selecting your language, keyboard layout etc
 
 <br/>
 
-Then simply click *Install now*.
+Then simply click the install button.
 
 ![VirtualBox Server Startup > Install ](./virtualbox-server-startup-install.png)
 
@@ -171,7 +171,7 @@ Then simply click *Install now*.
 
 After a minute or so, another wizard will pop up prompting us to select an operating system.
 
-Since we're virtualising a small-scale environment, we'll select "*Standard Evaluation (Desktop Experience*.")
+Since we're virtualising a small-scale environment, we'll select "Standard Evaluation (Desktop Experience").
 
 ![VirtualBox Server Install > Select OS](./virtualbox-server-install-select-os.png)
 
@@ -179,7 +179,7 @@ Since we're virtualising a small-scale environment, we'll select "*Standard Eval
 
 Click next, accept the license terms (read it if you like! 🙃) and click next again.
 
-For the type of installation, select *Custom*.
+For the type of installation, select "Custom".
 
 ![VirtualBox Server Install > Custom Install](./virtualbox-server-install-custom.png)
 
@@ -207,7 +207,7 @@ Once the install completes, allow the machine to reboot and set a new password f
 
 <br />
 
-Finally, unlock the home screen by going to *Input > Keyboard > Insert Ctrl-Alt-Del* as shown in the screenshot below.
+Finally, unlock the home screen by going to "Input" > "Keyboard" > "Insert Ctrl-Alt-Del" as shown in the screenshot below.
 
 ![VirtualBox Server > Unlock Homescreen](./virtualbox-server-unlock.png)
 
@@ -220,13 +220,13 @@ You'll then be able to login to Windows Server 2019 using your new administrator
 ## 2 - Installing VirtualBox Guest Additions
 The next stage is to install VirtualBox Guest Additions. This will provide optimal performance when using our virutal environment.
 
-**Step 1**: In VirtualBox, start by going to *Devices > Insert Guest Additions CD image*...
+**Step 1**: In VirtualBox, start by going to "Devices" > "Insert Guest Additions CD image..."
 
 ![VirtualBox Guest Additions CD Image](./virtualbox-server-guest-additions-image.png)
 
 <br />
 
-Next, go back into Windows Server 2019 and navigate to *My PC*.
+Next, go back into Windows Server 2019 and navigate to "My PC".
 
 Here, you'll see a new CD drive: `VirtualBox Guest Additions`.
 
@@ -240,13 +240,13 @@ Double click to explore the drive, and look for `VBoxWindowsAdditions-amd64`. Op
 
 <br />
 
-You'll be prompted to reboot your machine. Ignore this, and select "*I want to manually reboot later*".
+You'll be prompted to reboot your machine. Ignore this, and select "I want to manually reboot later".
 
 ![VirtualBox Guest Additions CD Drive > Reboot Later](./virtualbox-server-guest-additions-reboot-later.png)
 
 <br />
 
-**Step 2**: To complete the installation, simply shut down the machine by going to the *Start Menu > Shutdown*.
+**Step 2**: To complete the installation, simply shut down the machine by going to the "Start Menu" > "Shutdown".
 
 > This is just a safe way to preserve the installation. An automatic reboot may cause errors.
 
@@ -259,7 +259,7 @@ This will provide better integration between our virtual envrionment and the hos
 <br />
 
 ## 3 - Configuring Server Network Adapters
-**Step 1**: Back in Windows Server, go to *Settings > Network & Internet > Change adapter options*.
+**Step 1**: Back in Windows Server, go to "Settings" > "Network & Internet" > "Change adapter options".
 
 ![VirtualBox Server > Network Settings](./virtualbox-server-network-settings.png)
 
@@ -267,7 +267,7 @@ This will provide better integration between our virtual envrionment and the hos
 
 Here we'll see two network adapters. If you recall back to the setup - the extra adapter is the one we enabled as an internal network.
 
-We can confirm this by looking at the IPv4 addresses of each adapter. To do so, start by right clicking and selecting *Status > Details* to view the network connection properties of each adapter.
+We can confirm this by looking at the IPv4 addresses of each adapter. To do so, start by right clicking and selecting "Status" > "Details" to view the network connection properties of each adapter.
 
 ![VirtualBox Server > Network Settings > Adapter Details](./virtualbox-server-adapter-details.png)
 
@@ -295,7 +295,7 @@ For this example, I'll rename the first adapter to `INTERNAL` and our external a
 
 The next step is to manually assign our own IP address to the `INTERNAL` adapter.
 
-Once again, simply right click and select *Properties*. Then double click *Internet Protocol Version 4*. Enable *use the following IP address* and enter:
+Once again, simply right click and select "Properties". Then double click "Internet Protocol Version 4". Enable "use the following IP address" and enter:
 
 - **IP address**: 172.16.0.1
 - **Subnet mask**: 255.255.255.0
@@ -304,7 +304,7 @@ Once again, simply right click and select *Properties*. Then double click *Inter
 
 <br />
 
-Next, enable *Use the following DNS addresses* and enter the localhost address:
+Next, enable "Use the following DNS addresses" and enter the localhost address:
 
 - **Preferred DNS server**: 127.0.0.1
 
@@ -312,11 +312,11 @@ Next, enable *Use the following DNS addresses* and enter the localhost address:
 
 <br />
 
-Lastly, click *OK* to save the new configuration and close the window. Our adapter is now ready to go!
+Lastly, click OK to save the new configuration and close the window. Our adapter is now ready to go!
 
 **Step 3**: As a final step we should rename the PC so it's a little less generic.
 
-You can do this by right clicking the start menu and selecting *system*, then select *rename this PC*. To keep the naming convention consistent, I'll use `DC-DomainController`.
+You can do this by right clicking the start menu and selecting "System", then select "rename this PC". To keep the naming convention consistent, I'll use `DC-DomainController`.
 
 ![VirtualBox Server > Rename PC](./virtualbox-server-rename-pc.png)
 
@@ -325,15 +325,15 @@ You can do this by right clicking the start menu and selecting *system*, then se
 We can then perform a restart to complete the changes.
 
 ## 4 - Installing Active Directory Domain Services
-**Step 1**: Open *Server Manager*.
+**Step 1**: Open "Server Manager".
 
-**Step 2**: Select "*Add roles and features*" and click next until you reach the page shown below.
+**Step 2**: Select "Add roles and features" and click next until you reach the page shown below.
 
 ![VirtualBox Server > Server Manager > Add Roles and Features](./virtualbox-server-manager-add-roles-and-features.png)
 
 <br />
 
-Select "*Active Directory Domain Services*" and click "*Add Features*".
+Select "Active Directory Domain Services" and click "Add Features".
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > Active Directory Domain Services](./virtualbox-server-manager-active-directory-domain-services.png)
 
@@ -345,13 +345,13 @@ Keep clicking next until you're prompted to install, then click install. Once co
 
 <br />
 
-**Step 3**: Now we have the services, you'll see a warning symbol at the top right of Server Manager. Left click it, and select "*Promote this server to a domain controller*."
+**Step 3**: Now we have the services, you'll see a warning symbol at the top right of Server Manager. Left click it, and select "Promote this server to a domain controller".
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > Promote Server](./virtualbox-server-manager-promote-server.png)
 
 <br />
 
-Next, select "*Add new forest*" and enter a domain address. You can pick any domain you like (`homelab.local`, `mydomain.com` etc.) but for this example I'll go with `activedir-homelab.com`.
+Next, select "Add new forest" and enter a domain address. You can pick any domain you like (`homelab.local`, `mydomain.com` etc.) but for this example I'll go with `activedir-homelab.com`.
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > Promote Server > Add New Forest](./virtualbox-server-manager-add-new-forest.png)
 
@@ -373,21 +373,21 @@ Upon restarting, you should notice that you're now able to login to your domain 
 
 ## 5 - Create Domain Administrator Account
 
-**Step 1**: Back in Windows Server 2019 - go to *Start > Windows Administrative Tools > Active Directory Users and Computers*.
+**Step 1**: Back in Windows Server 2019 - go to "Start" > "Windows Administrative Tools" > "Active Directory Users and Computers".
 
-Expand *Active Directory Users and Computers* and you'll see your domain name. Right click and select *New > Organizational Unit*.
+Expand "Active Directory Users and Computers" and you'll see your domain name. Right click and select "New" > "Organizational Unit".
 
 ![VirtualBox Server > Active Directory Users and Computers](./virtualbox-server-active-directory-users-and-computers.png)
 
 <br />
 
-Name it something like `Administrators` or `ADMINS`, uncheck the box "*Protect container from accidental deletion*" and click OK.
+Name it something like `Administrators` or `ADMINS`, uncheck the box "Protect container from accidental deletion" and click OK.
 
 ![VirtualBox Server > Active Directory Users and Computers > New > Organizational Unit](./virtualbox-server-new-organizational-unit.png)
 
 <br />
 
-**Step 2**: Now let's setup a new user. Right click your new organisation, and select *New > User*.
+**Step 2**: Now let's setup a new user. Right click your new organisation, and select "New" > "User".
 
 ![VirtualBox Server > Organizational Unit > New User](./virtualbox-server-organizational-unit-new-user.png)
 
@@ -405,7 +405,7 @@ Fill out the form with some generic information (use your name if you like!)
 
 Then click next.
 
-Enter a new password for your domain admin, then check "*Password never expires*" and uncheck "*User must change password at next logon*." Click next to create the user.
+Enter a new password for your domain admin, then check "Password never expires" and uncheck "User must change password at next logon". Click next to create the user.
 
 ![VirtualBox Server > Organizational Unit > New User > User Password](./virtualbox-server-organizational-unit-user-password.png)
 
@@ -413,7 +413,7 @@ Enter a new password for your domain admin, then check "*Password never expires*
 
 Next we want to add the user as an admin.
 
-Right click the user and select *Properties*. Look for the *Member Of* tab, click *Add* and type "*domain admins*" in the textbox. Lastly, click *Check Names* and apply.
+Right click the user and select "Properties". Look for the "Member Of" tab, click "Add" and type "domain admins" in the textbox. Lastly, click "Check Names" and apply.
 
 ![VirtualBox Server > Organizational Unit > User > Member Of > Domain Admins](./virtualbox-server-organizational-unit-domain-admins.png)
 
@@ -423,7 +423,7 @@ Click OK and then apply. This will assign the account as an administrator of the
 
 **Step 3**: Re-login with the new domain admin account.
 
-First sign out to return to the login screen. From here, select *Other user* at the bottom left, and login using the domain admin's credentials you created in the previous steps.
+First sign out to return to the login screen. From here, select "Other user" at the bottom left, and login using the domain admin's credentials you created in the previous steps.
 
 ![VirtualBox Server > Other User > Sign In](./virtualbox-server-domain-admin-login.png)
 
@@ -432,13 +432,13 @@ First sign out to return to the login screen. From here, select *Other user* at 
 ## 6 - Installing & Configuring RAS/NAT
 Now we're logged into the domain admin account, the next step is to install and configure RAS/NAT.
 
-**Step 1**: Go back into *Server Manager* and select "*Add roles and features*". Continue to click next until you reach "*Select server roles*" and search for *Remote Access*. Check it and click next.
+**Step 1**: Go back into "Server Manager" and select "Add roles and features". Continue to click next until you reach "Select server roles" and search for "Remote Access". Check it and click next.
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > Remote Access](./virtualbox-server-manager-remote-access.png)
 
 <br />
 
-Continue to click next until you reach "*Select role services*". Here, check *Routing*. In the new window, select *Add Features*.
+Continue to click next until you reach "Select role services". Here, check "Routing". In the new window, select "Add Features".
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > Remote Access > Routing](./virtualbox-server-manager-routing.png)
 
@@ -446,25 +446,25 @@ Continue to click next until you reach "*Select role services*". Here, check *Ro
 
 Keep clicking next, and then install the new role. Once installation is complete, close the window.
 
-**Step 2**: Next, at the top right of *Service Manager*, go to *Tools > Routing and Remote Access*.
+**Step 2**: Next, at the top right of "Service Manager", go to "Tools" > "Routing and Remote Access".
 
 ![VirtualBox Server > Server Manager > Tools > Routing and Remote Access](./virtualbox-server-manager-tools-routing-remote-access.png)
 
 <br />
 
-Right click `DC-DomainController` (or the PC name you chose) and click "*Configure and Enable Routing and Remote Access*".
+Right click `DC-DomainController` (or the PC name you chose) and click "Configure and Enable Routing and Remote Access".
 
 ![VirtualBox Server > Server Manager > Tools > Routing and Remote Access > Configure and Enable Routing and Remote Access](./virtualbox-server-manager-configure-and-enable-routing-remote-access.png)
 
 <br />
 
-Click next, and under configuration, select *Network address translation (NAT)* and click next.
+Click next, and under configuration, select "Network address translation (NAT)" and click next.
 
 ![VirtualBox Server > Server Manager > Tools > Routing and Remote Access > Configure and Enable Routing and Remote Access > NAT](./virtualbox-server-manager-nat.png)
 
 <br />
 
-From here, enable "*Use this public interface to connect to the internet:*" and select `EXT-INTERNET` (or the name of your external network adapter we setup in Section 3.)
+From here, enable "Use this public interface to connect to the internet:" and select `EXT-INTERNET` (or the name of your external network adapter we setup in Section 3.)
 
 > 📍 Note: If you're not able to enable this option, close the window and try again.
 
@@ -474,19 +474,19 @@ From here, enable "*Use this public interface to connect to the internet:*" and 
 
 <br />
 
-Lastly, click finish and we're done with configuring RAS/NAT. You can now close the *Routing and Remote Access* window.
+Lastly, click finish and we're done with configuring RAS/NAT. You can now close the "Routing and Remote Access" window.
 
 ## 7 - Installing & Configuring DHCP Server
 
-**Step 1**: In *Service Manager*, select "*Add roles and features*." Click next until you get to get to "*Select server roles*."
+**Step 1**: In "Service Manager", select "Add roles and features". Click next until you get to "Select server roles".
 
-This time, select *DHCP Server* and continue to installation like before.
+This time, select "DHCP Server" and continue to installation like before.
 
 ![VirtualBox Server > Server Manager > Add Roles and Features > DHCP Server](./virtualbox-server-manager-dhcp-server.png)
 
 <br />
 
-**Step 2**: Once complete, close the window and go to *Tools (in Service Manager) > DHCP* to open the DHCP control panel. Expand the domain name, right click *IPv4* and select *New Scope...*
+**Step 2**: Once complete, close the window and go to "Tools" (in Service Manager) > "DHCP" to open the DHCP control panel. Expand the domain name, right click "IPv4" and select "New Scope..."
 
 ![VirtualBox Server > Server Manager > DHCP > New Scope...](./virtualbox-server-manager-new-scope.png)
 
@@ -515,7 +515,7 @@ Next, we can define the following parameters:
 
 Continue clicking next, ignoring exclusions and lease direction.
 
-You'll then be prompted to configure DHCP options. Ensure "*Yes, I want to configure these options now*" is enabled and click next.
+You'll then be prompted to configure DHCP options. Ensure "Yes, I want to configure these options now" is enabled and click next.
 
 ![VirtualBox Server > Server Manager > DHCP > Configure Scope Options](./virtualbox-server-manager-dhcp-scope-configure-options.png)
 
@@ -542,13 +542,13 @@ Again, we'll also need to specify the IP address of the server (don't forget to 
 
 Continue to click next keeping all default settings. Then hit finish to complete the scope.
 
-Finally, right click the DHCP server and select *Authorize*.
+Finally, right click the DHCP server and select "Authorize".
 
 ![VirtualBox Server > Server Manager > DHCP > Authorize](./virtualbox-server-manager-dhcp-authorise-server.png)
 
 <br />
 
-Right click again and this time click *Refresh*. You should see both *IPv4* and *IPv6* turn green, indicating a successful configuration.
+Right click again and this time click "Refresh". You should see both "IPv4" and "IPv6" turn green, indicating a successful configuration.
 
 ![VirtualBox Server > Server Manager > DHCP > Refresh](./virtualbox-server-manager-dhcp-refresh.png)
 
@@ -557,13 +557,13 @@ Right click again and this time click *Refresh*. You should see both *IPv4* and 
 ## 8 - Disable Internet Browsing Security Configuration
 To make life easier in the next step, we're also going to disable the built-in enhanced security configuration. This will prevent false positives when browsing the internet.
 
-**Step 1**: Open *Server Manager* and click "*Configure this local server*." From there, under *Properties* - look for "*IE Enhanced Security Configuration*."
+**Step 1**: Open "Server Manager" and click "Configure this local server". From there, under "Properties" - look for "IE Enhanced Security Configuration".
 
 ![VirtualBox Server > Server Manager > Configuration > IE Enhanced Security Configuration](./virtualbox-server-security-configuration.png)
 
 <br />
 
-Click "*On*", and a new window will pop up. Toggle both administrators and users to *off* and click OK to save the changes.
+Click "On", and a new window will pop up. Toggle both administrators and users to *off* and click OK to save the changes.
 
 ![VirtualBox Server > Server Manager > Configuration > IE Enhanced Security Configuration > Toggle Off](./virtualbox-server-security-configuration-toggle.png)
 
@@ -626,20 +626,20 @@ Since I've already used my name for the domain admin, I'll use another that's ea
 
 Save and close the file.
 
-**Step 2**: Next, open **PowerShell ISE** by going to *Start Menu > Windows PowerShell > Windows PowerShell ISE*. Right click and run as administrator.
+**Step 2**: Next, open **PowerShell ISE** by going to "Start Menu" > "Windows PowerShell" > "Windows PowerShell ISE". Right click and run as administrator.
 
 ![VirtualBox Server > PowerShell > PowerShell ISE](./virtualbox-server-powershell-ise.png)
 
 <br />
 
-Once PowerShell ISE is running, go to *File > Open* and browse for `generate-users.ps1` (the PowerShell script you downloaded previously.) Open this file.
+Once PowerShell ISE is running, go to "File" > "Open" and browse for `generate-users.ps1` (the PowerShell script you downloaded previously.) Open this file.
 
 **Step 3**: Next, run the following command in the PowerShell terminal to set PowerShell's execution policy to unrestricted:
 ```powershell
 Set-ExecutionPolicy Unrestricted
 ```
 
-Once the prompt pops up, select *Yes to All*.
+Once the prompt pops up, select "Yes to All".
 
 ![VirtualBox Server > PowerShell > Set-ExecutionPolicy](./virtualbox-server-powershell-set-execution-policy.png)
 
@@ -663,7 +663,7 @@ This means the script has executed successfully and your accounts are now active
 
 Let's take a look.
 
-Go back into *Active Directory Users and Computers*, select the domain and you should see a new OU called `_USERS`. Upon selection, you'll see a list of all the users we just created.
+Go back into "Active Directory Users and Computers", select the domain and you should see a new OU called `_USERS`. Upon selection, you'll see a list of all the users we just created.
 
 ![VirtualBox Server > Active Directory Users and Computers > Users](./virtualbox-server-powershell-users.png)
 
@@ -694,13 +694,13 @@ Again, we set the type to Microsoft Windows but choose `Windows 10 (64-bit)` as 
 
 Click next, and create the machine just like we did with the previous setup.
 
-**Step 3**: Next, open the machine settings and go to *General > Advanced*. Set both *Shared Clipboard* and *Drag'n'Drop* to *Bidirectional*.
+**Step 3**: Next, open the machine settings and go to "General" > "Advanced". Set both "Shared Clipboard" and "Drag'n'Drop" to "Bidirectional".
 
 ![VirtualBox Client Settings > General > Advanced](./virtualbox-client-settings-general-advanced.png)
 
 <br />
 
-Next, go to *System > Processor*.
+Next, go to "System" > "Processor".
 
 Again, we want to set the number of cores. Just like the previous setup, I'll go with two cores.
 
@@ -708,7 +708,7 @@ Again, we want to set the number of cores. Just like the previous setup, I'll go
 
 <br />
 
-**Step 4**: Finally, go to *Network > Adapter 1*. Set the dropdown to *Internal Network* and click OK.
+**Step 4**: Finally, go to "Network" > "Adapter 1". Set the dropdown to "Internal Network" and click OK.
 
 ![VirtualBox Client Settings > Network > Adapter](./virtualbox-client-settings-network-adapter.png)
 
@@ -720,13 +720,13 @@ Again, we want to set the number of cores. Just like the previous setup, I'll go
 
 <br />
 
-Then simply continue through the Windows 10 installation selecting your language, keyboard layout etc. and click *Install*.
+Then simply continue through the Windows 10 installation selecting your language, keyboard layout etc. and click "Install".
 
 ![VirtualBox Client Startup > Install](./virtualbox-client-install.png)
 
 <br />
 
-Once prompted, select *Custom* install.
+Once prompted, select "Custom" install.
 
 ![VirtualBox Client Startup > Install](./virtualbox-client-install-custom.png)
 
@@ -738,7 +738,7 @@ You'll be asked where to install Windows. Keep the default settings, and click n
 
 <br />
 
-**Step 6**: Once complete, you'll be prompted to sign in with a Microsoft account. Ignore this, and select "*Domain join instead*."
+**Step 6**: Once complete, you'll be prompted to sign in with a Microsoft account. Ignore this, and select "Domain join instead".
 
 ![VirtualBox Client Startup > Domain](./virtualbox-client-install-domain.png)
 
@@ -784,9 +784,9 @@ If we run `hostname` in *Command Prompt*, we can get the hostname of the machine
 
 As shown above, the hostname is `DESKTOP-RRBUG68`. Doesn't make much sense to me! Let's change this to something more meaningful.
 
-Right click the *Start Menu* and click *System*. From here, scroll all the way down and look for *Rename this PC (advanced.)* This will bring up a new window.
+Right click the "Start Menu" and click "System". From here, scroll all the way down and look for "Rename this PC (advanced)". This will bring up a new window.
 
-Pick a new name for your PC (for consistency, I'll choose `Client1`.) Then, enable *Domain* and enter the domain name (`activedir-homelab.com`.)
+Pick a new name for your PC (for consistency, I'll choose `Client1`.) Then, enable "Domain" and enter the domain name (`activedir-homelab.com`.)
 
 ![VirtualBox Client > Rename PC](./virtualbox-client-rename.png)
 
@@ -800,7 +800,7 @@ Click OK to save the changes, and it will prompt you to login to an administrato
 
 Lastly, restart the machine.
 
-Once we're back at the login screen, select the "*Other user*" option and try signing in with one of the accounts you setup with PowerShell.
+Once we're back at the login screen, select the "Other user" option and try signing in with one of the accounts you setup with PowerShell.
 
 Since I added "Max Headroom" as a user in `names.txt`, I'll sign in using the credentials:
 - **Username**: mheadroom
@@ -816,7 +816,7 @@ Success! We can login and join the domain with all of the credentials we set up 
 
 <br />
 
-Back in our domain controller, we can view all our client machines by going to *Server Manager > DHCP > Domain Name > Scope > Address Leases*.
+Back in our domain controller, we can view all our client machines by going to "Server Manager" > "DHCP" > "Domain Name" > "Scope" > "Address Leases".
 
 ![VirtualBox Server > DHCP > Domain > Scope > Address Leases](./virtualbox-server-dhcp-address-leases.png)
 
@@ -824,7 +824,7 @@ Back in our domain controller, we can view all our client machines by going to *
 
 This tells us that the IP address `172.16.0.101` has been leased to Client1.
 
-We can also go back into *Active Directory Users and Computers* and view the client in the *Computers* folder.
+We can also go back into "Active Directory Users and Computers" and view the client in the "Computers" folder.
 
 ![VirtualBox Server > Active Directory Users and Computers > Computers](./virtualbox-server-active-directory-users-and-computers-client.png)
 
@@ -840,4 +840,5 @@ We've setup some core services including **AD DS (Active Directory Domain Servic
 <br />
 
 ## Further Resources
+If you'd like to learn more about Windows Server and Active Directory, visit Microsoft's official documentation below.
 - [Microsoft Windows Server Documentation](https://docs.microsoft.com/en-us/windows-server/)

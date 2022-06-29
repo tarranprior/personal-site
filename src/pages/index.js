@@ -77,7 +77,7 @@ export default function Home() {
           <p>{meta.site.siteMetadata.description}</p>
           <StyledSocialList>
             <li><a href="https://github.com/tarranprior" target="_blank" rel="noreferrer">GitHub</a></li>
-            <li>•</li>
+            <li>|</li>
             <li><a href="mailto:tarranprior@protonmail.com" target="_blank" rel="noreferrer">Email</a></li>
           </StyledSocialList>
           <h3>Currently:</h3>
@@ -93,10 +93,6 @@ export default function Home() {
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">/Disclone/</a></h4>
               <p>Disclone is a self-hostable bot with Rclone integration, Gclone support and Google Drive automation utilities for collaborative cloud storage management.</p>
-            </li>
-            <li>
-              <h4>📁 <a href="https://github.com/tarranprior/scrapers" target="_blank" rel="noreferrer">/scrapers/</a></h4>
-              <p>Various web scrapers built with Python. Made with the intention of data archival and preservation.</p>
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">/Runebot/</a></h4>
