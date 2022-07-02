@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 
 export default function Home() {
 
+  const _ = require("lodash")
   const meta = useStaticQuery(graphql`
     query {
       site {
@@ -56,16 +57,6 @@ export default function Home() {
       font-size: 14px;
       color: #444;
     }
-    .metadata {
-      padding-bottom: 1rem;
-      p {
-        margin-right: 1rem;
-        display: inline;
-      }
-      .tags {
-        font-weight: 500;
-      }
-    }
   `;
 
   return (
@@ -111,7 +102,11 @@ export default function Home() {
                   </h4>
                   <div class="metadata">
                     <p>{edge.node.frontmatter.date}</p>
-                    <p class="tags">{edge.node.frontmatter.tags.join(', ')}</p>
+                    {edge.node.frontmatter.tags.map((tag) => {
+                      return (
+                        <p class="tags"><Link to={`tags/${_.kebabCase(tag)}`}>{tag}</Link></p>
+                      )
+                    })}
                   </div>
                 </li>
               )

@@ -62,6 +62,21 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 1.25rem;
     font-size: 14px;
   }
+  .metadata {
+    padding-bottom: 1rem;
+    p {
+      margin-right: .75rem;
+      display: inline;
+    }
+  }
+  .tags {
+    font-size: 14px;
+    font-weight: 500;
+    a,
+    a:visited {
+      color: #333 !important;
+    }
+  }
 
   a,
   a:visited {

@@ -1,6 +1,6 @@
-const path = require(`path`);
-
 exports.createPages = async ({ actions, graphql }) => {
+  const path = require(`path`);
+  const _ = require("lodash")
   const { createPage } = actions;
 
   const query = await graphql(`
@@ -15,6 +15,11 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      tags: allMdx {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `);
 
@@ -24,6 +29,17 @@ exports.createPages = async ({ actions, graphql }) => {
       component: path.resolve(`src/templates/posts.js`),
       context: {
         slug: node.slug
+      },
+    })
+  })
+
+  const tags = query.data.tags.group
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: path.resolve(`src/templates/tags.js`),
+      context: {
+        tag: tag.fieldValue,
       },
     })
   })

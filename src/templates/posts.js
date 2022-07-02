@@ -20,6 +20,7 @@ export const pageQuery = graphql`
   }
 `
 
+const _ = require("lodash")
 const StyledPostMeta = styled.ol`
   margin: 0;
   font-size: 14px;
@@ -80,25 +81,33 @@ const StyledDiv = styled.div`
 `
 
 function Blog({ data }) {
-  const backText = "../ Back To Root Directory"
   return (
     <>
       <Head title={data.mdx.frontmatter.title} />
       <div class="container">
         <Layout>
-          <p class="small"><Link to="/">{backText}</Link></p>
+          <p class="small"><Link to="/">../ Parent Directory</Link></p>
           <h1>{data.mdx.frontmatter.title}</h1>
           <br/>
-          <StyledPostMeta>
-            <li>📅 {data.mdx.frontmatter.date}</li>
-            <li>📝 {data.mdx.frontmatter.edit}</li>
-            <li>☕ {data.mdx.frontmatter.reading}</li>
-            <ll>🏷️ {data.mdx.frontmatter.tags.join(', ')}</ll>
-          </StyledPostMeta>
+          <div class="metadata">
+            <StyledPostMeta>
+              <li>📅 {data.mdx.frontmatter.date}</li>
+              <li>📝 {data.mdx.frontmatter.edit}</li>
+              <li>☕ {data.mdx.frontmatter.reading}</li>
+              <li>🏷️ {data.mdx.frontmatter.tags.map((tag) => {
+                  return (
+                    <p class="tags">
+                      <Link to={`/tags/${_.kebabCase(tag)}`}>{tag}</Link>
+                    </p>
+                  )
+                })}
+              </li>
+            </StyledPostMeta>
+          </div>
           <StyledDiv>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </StyledDiv>
-          <p class="small"><Link to="/">{backText}</Link></p>
+          <p class="small"><Link to="/">../ Parent Directory</Link></p>
         </Layout>
       </div>
     </>
