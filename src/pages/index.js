@@ -82,11 +82,11 @@ export default function Home() {
           <h2>Index of /public/recent/Projects/</h2>
           <StyledList>
             <li>
-              <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">/Disclone/</a></h4>
+              <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">Disclone/</a></h4>
               <p>Disclone is a self-hostable bot with Rclone integration, Gclone support and Google Drive automation utilities for collaborative cloud storage management.</p>
             </li>
             <li>
-              <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">/Runebot/</a></h4>
+              <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">Runebot/</a></h4>
               <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
             </li>
           </StyledList>

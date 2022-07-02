@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Head from '../components/Head';
 import Layout from '../components/Layout';
 
+const _ = require("lodash")
 export const pageQuery = graphql`
   query MDXQuery($slug: String!) {
     mdx(slug: { eq: $slug }) {
@@ -20,14 +21,13 @@ export const pageQuery = graphql`
   }
 `
 
-const _ = require("lodash")
 const StyledPostMeta = styled.ol`
   margin: 0;
   font-size: 14px;
   list-style-type: none;
   li {
     display: inline;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
   }
 `
 
@@ -40,10 +40,6 @@ const StyledDiv = styled.div`
     padding-top: 1rem;
     padding-bottom: 1rem;
     line-height: 1.75;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
   }
   li {
     padding: .75rem;
