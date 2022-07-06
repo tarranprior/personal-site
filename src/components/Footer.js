@@ -27,7 +27,7 @@ function Footer() {
         <p>
           © {new Date().getFullYear()} {meta.site.siteMetadata.author} &middot; Built with
           {` `}
-          <a href="https://www.gatsbyjs.com" target="_blank" rel="noreferrer">Gatsby</a>.
+          <a href="https://www.gatsbyjs.com" target="_blank" rel="noreferrer">Gatsby</a> &middot; Made with ❤️, ☕ and 🎧.
         </p>
       </StyledFooter>
     )

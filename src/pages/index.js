@@ -14,7 +14,7 @@ export default function Home() {
           description
         }
       },
-      allMdx(filter: { frontmatter: { published: { eq: true }}}, sort: {fields: [frontmatter___date], order: DESC}, ) {
+      allMdx(limit: 8 filter: { frontmatter: { published: { eq: true }}}, sort: {fields: [frontmatter___date], order: DESC}, ) {
         edges {
           node {
             frontmatter {
@@ -73,11 +73,10 @@ export default function Home() {
           </StyledSocialList>
           <h3>Currently:</h3>
           <StyledCurrentList>
-            <li>👨‍💻 I'm a <b>cyber security</b> professional living in beautiful <b>Wiltshire, UK</b></li>
-            <li>🏢 installing <b>IT infrastructure</b> and <b>providing support</b> for local businesses,</li>
-            <li>🛠️ building and maintaining <b>open-source software</b> and <b>offensive tools</b>,</li>
+            <li>👨‍💻 I'm an <b>IT</b> professional living in beautiful <b>Wiltshire, UK</b></li>
+            <li>🛠️ building and maintaining <b>open-source software</b> and <b>community tools</b>,</li>
             <li>💾 <b>preserving files</b> and discussing data with the good people @ <b><a href="https://old.reddit.com/r/DataHoarder" target="_blank" rel="noreferrer">r/DataHoarder</a></b>,</li>
-            <li>📚 learning <b>Go</b> and <b>Reverse Engineering</b>.</li>
+            <li>📚 learning <b>Go</b> and <b>Offensive Security</b>.</li>
           </StyledCurrentList>
           <h2>Index of /public/recent/Projects/</h2>
           <StyledList>
@@ -87,7 +86,7 @@ export default function Home() {
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">Runebot/</a></h4>
-              <p>Runebot is a feature-rich Discord tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
+              <p>Runebot is a feature rich Discord tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
             </li>
           </StyledList>
           <h2>Index of /public/recent/Writing/</h2>
