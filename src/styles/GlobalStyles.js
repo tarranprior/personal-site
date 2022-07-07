@@ -90,6 +90,13 @@ const GlobalStyles = createGlobalStyle`
   ol, ul {
     margin: 1rem;
   }
+  .inline-list {
+    list-style-type: none;
+    font-size: 14px;
+    li {
+      padding: .5rem;
+      display: inline-block;
+  }
 `;
 
 export default GlobalStyles;

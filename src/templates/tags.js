@@ -22,6 +22,11 @@ export const pageQuery = graphql`
         }
       }
     }
+    tags: allMdx {
+      group(field: frontmatter___tags) {
+        fieldValue
+      }
+    }
   }
 `;
 
@@ -41,7 +46,6 @@ p {
 
 function Tag({ pageContext, data }) {
   const { tag } = pageContext || {};
-  console.log(data)
   return (
     <>
       <Head />
@@ -70,6 +74,16 @@ function Tag({ pageContext, data }) {
               )
             })}
           </StyledList>
+          <ul class="inline-list">
+            <li>Similar Tags:</li>
+            {data.tags.group.map((tag) => {
+              return (
+                <li>
+                  <Link to={`/tags/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link>
+                </li>
+              )
+          })}
+          </ul>
         </Layout>
       </div>
     </>

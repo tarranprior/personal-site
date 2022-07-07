@@ -36,15 +36,6 @@ export default function Home() {
     }
   `;
 
-  const StyledSocialList = styled.ul`
-  list-style-type: none;
-  font-size: 14px;
-    li {
-      padding: .5rem;
-      display: inline;
-    }
-  `;
-
   const StyledList = styled.ol`
     margin-top: 1.75rem;
     list-style-type: none;
@@ -66,11 +57,11 @@ export default function Home() {
         <main>
           <h1>Hey, I'm Tarran! 👋</h1>
           <p>{meta.site.siteMetadata.description}</p>
-          <StyledSocialList>
+          <ul class="inline-list">
             <li><a href="https://github.com/tarranprior" target="_blank" rel="noreferrer">GitHub</a></li>
             <li>|</li>
             <li><a href="mailto:tarranprior@protonmail.com" target="_blank" rel="noreferrer">Email</a></li>
-          </StyledSocialList>
+          </ul>
           <h3>Currently:</h3>
           <StyledCurrentList>
             <li>👨‍💻 I'm an <b>IT</b> professional living in beautiful <b>Wiltshire, UK</b></li>
