@@ -49,14 +49,20 @@ If you prefer, you can also check out the non-administrative install instruction
 Set-ExecutionPolicy AllSigned
 ```
 
-2. Next, run the following command:
+<br />
+
+2. Next, run this command:
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
+<br />
+
 3. Lastly, wait a few seconds for the installation to complete. If you don't see any errors, you have successfully installed Chocolatey! Restart the shell to complete the changes.
 
-Now to confirm that Chocolatey is working, type `choco` or `choco -?` and you'll see the following output:
+<br />
+
+To confirm that Chocolatey is working, type `choco` or `choco -?` and you'll see the following output:
 
 ```
 C:\Users\User> choco
@@ -80,3 +86,9 @@ choco install meteor
 ```
 
 And just like that, Meteor is installed on your machine and ready to use!
+
+## Further Resources
+So what's next? *Meteor is your oyster!* 🦪 For pointers, I've included a handful of resources below.
+
+- [An Introduction To Meteorjs - Quick Start Guide](http://localhost:8000/writing/an-introduction-to-meteorjs-quick-start-guide)
+- [Meteor.js Documentation](https://docs.meteor.com/)

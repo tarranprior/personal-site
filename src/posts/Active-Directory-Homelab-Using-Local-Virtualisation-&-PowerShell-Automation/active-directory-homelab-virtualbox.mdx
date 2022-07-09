@@ -22,9 +22,7 @@ This guide demonstrates how to **setup**, **install** and **configure** a full-b
 I'll be walking through some core network components and services such as **DHCP**, **RAS/NAT** and **Domain Services (AD DS)**, as well as basic fundamentals of computer networking and enterprise-level infrastructure.
 
 ### What is Active Directory?
-So, what is Active Directory?!
-
-**Active Directory** is a management solution that stores, organises and provides access to information about users, devices, files and more (referred to as *objects*) in a system network. This allows system administrators to directly manage and configure thousands of users/devices from a centralised location.
+In a nutshell 🌰 **Active Directory** is a management solution that stores, organises and provides access to information about users, devices, files and more (referred to as *objects*) in a system network. This allows system administrators to directly manage and configure thousands of users/devices from a central location.
 
 Microsoft provides Active Directory as a set of services built exclusively for **Windows operating systems**, and it's currently the industry standard in enterprise-level environments. In fact - 90 percent of the [Fortune Global 500](https://fortune.com/global500/) use it as their primary service for network authentication and authorisation.
 
@@ -66,8 +64,8 @@ In addition, we'll need to download and install VirtualBox - the virtualisation 
 - **Windows 10 Enterprise Evaluation ISO** (download below.)
 - **Windows Server 2019 Evaluation ISO** (download below.)
 
-### 📦 VirtualBox
-You can download the latest version of VirtualBox [here](https://www.virtualbox.org/wiki/Downloads), or use the link below.
+### ⚙️ VirtualBox
+You can download and install the latest version of VirtualBox [here](https://www.virtualbox.org/wiki/Downloads), or use the link below.
 
 - https://www.virtualbox.org/wiki/Downloads
 
@@ -573,12 +571,12 @@ Click "On", and a new window will pop up. Toggle both administrators and users t
 We now have a domain controller setup with an administrator account - but no regular users. Let's change that with some fancy PowerShell scripting.
 
 ### Namelists
-To begin, you'll need to download [this list](https://github.com/tarranprior/active-directory-powershell/tree/main/AD-Generate_Users/names.txt) of randomly generated names.
+To begin, you'll need to download [this list](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/names.txt) of randomly generated names.
 
-> This list was generated using Python and a collection of 📜 [Wordlists](https://github.com/tarranprior/wordlists).
+> This list was generated using Python and a collection of 📜 [Wordlists](https://github.com/tarranprior/Wordlists).
 
 ### PowerShell Script
-In addition, download this PowerShell script [here](https://github.com/tarranprior/active-directory-powershell/tree/main/AD-Generate_Users/generate-users.ps1) (don't forget to leave a star! ⭐) or you can copy the script below and paste in it a text editor, saving as `generate-users.ps1`.)
+In addition, download this PowerShell script [here](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/Generate_Users.ps1) (don't forget to leave a star! ⭐) or you can copy the script below and paste in it a text editor, saving as `generate-users.ps1`.)
 
 This is what we're using to create user accounts from the list of names.
 
@@ -606,7 +604,7 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
 ```
 
 > Download a [zip]() with both files.<br />
-> For further explanation on this script, visit the [README](https://github.com/tarranprior/active-directory-powershell/tree/main/AD-Generate_Users/README.md).
+> For further explanation on this script, visit the [README](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/README.md).
 
 <br />
 
