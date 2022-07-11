@@ -23,7 +23,7 @@ export const pageQuery = graphql`
 
 const StyledPostMeta = styled.ol`
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   list-style-type: none;
   li {
     display: inline;
@@ -52,6 +52,7 @@ const StyledDiv = styled.div`
   blockquote {
     padding-left: 1.25rem;
     border-left: 5px solid #c8cfd1;
+    color: #444;
   }
   hr {
     margin-top: 2rem;

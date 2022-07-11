@@ -1,9 +1,9 @@
 ---
-title: "Active Directory Homelab Using Local Virtualisation & PowerShell Automation"
+title: "Active Directory Homelab Using Local Virtualisation (VirtualBox)"
 author: "Tarran Prior"
 date: "2022-06-18 17:15"
-slug: "active-directory-homelab-using-virtualisation-powershell-automation"
-edit: "2022-06-24 20:19"
+slug: "active-directory-homelab-using-local-virtualisation-virtualbox"
+edit: "2022-07-11 09:24"
 reading: "14 min"
 tags: ["Active Directory", "Windows"]
 published: true
@@ -15,20 +15,38 @@ The **ultimate guide** to a full-blown virtual **Active Directory** homelab envi
 
 <br />
 
-## Introduction / Guide Overview
-
 This guide demonstrates how to **setup**, **install** and **configure** a full-blown **Active Directory environment** using local virtualisation (VirtualBox) from scratch. To take it a step further, we'll also be using PowerShell scripting to populate our lab with hundreds of user credentials.
 
 I'll be walking through some core network components and services such as **DHCP**, **RAS/NAT** and **Domain Services (AD DS)**, as well as basic fundamentals of computer networking and enterprise-level infrastructure.
 
-### What is Active Directory?
-In a nutshell 🌰 **Active Directory** is a management solution that stores, organises and provides access to information about users, devices, files and more (referred to as *objects*) in a system network. This allows system administrators to directly manage and configure thousands of users/devices from a central location.
+### Contents
+0. **[Prerequisites](#prerequisites)**
+    - **[Installing VirtualBox](#-virtualbox)**
+    - **[Downloading Windows 10 Enterprise (Evaluation)](#-windows-10-enterprise-evaluation)**
+    - **[Downloading Windows Server 2019 (Evaluation)](#-windows-server-2019-evaluation)**
+1. **[Setup & Installation of Windows Server](#1---setup--installation-of-windows-server)**
+2. **[Installing VirtualBox Guest Additions](#2---installing-virtualbox-guest-additions)**
+3. **[Configuring Server Network Adapters](#3---configuring-server-network-adapters)**
+4. **[Installing Active Directory Domain Services](#4---installing-active-directory-domain-services)**
+5. **[Create Domain Administrator Account](#5---create-domain-administrator-account)**
+6. **[Installing & Configuring RAS/NAT](#6---installing--configuring-rasnat)**
+7. **[Installing & Configuring DHCP Server](#7---installing--configuring-dhcp-server)**
+8. **[Disable Internet Browsing Security Configuration](#8---disable-internet-browsing-security-configuration)**
+9. **[PowerShell Automation & Scripting](#9---powershell-automation--scripting)**
+10. **[Setting Up Windows 10 User Environment](#10---setting-up-windows-10-user-environment)**
+
+<br />
+
+## What is Active Directory?
+Before we begin, here's a quick summary of both Active Directory and virtualisation.
+
+**Active Directory** is a directory service and management solution that stores, organises and provides access to information about users, devices, files and more (referred to as *objects*) in a system network. This allows system administrators to directly manage and configure thousands of users/devices from a central location.
 
 Microsoft provides Active Directory as a set of services built exclusively for **Windows operating systems**, and it's currently the industry standard in enterprise-level environments. In fact - 90 percent of the [Fortune Global 500](https://fortune.com/global500/) use it as their primary service for network authentication and authorisation.
 
 To say it was popular would be an understatement. If you work in IT, you've probably come across it at some point.
 
-### What is Virtualisation?
+## What is Virtualisation?
 **Virtualisation** allows us to simulate virtual instances of computer systems in a separate container abstract from the physical (or host) machine.
 
 This means we're able to use software and services such as Active Directory without altering our native system, providing a safe and practical learning environment.
@@ -36,22 +54,6 @@ This means we're able to use software and services such as Active Directory with
 Security researchers will often use virtual machines to not only to add an extra layer of security to their system, but because many Linux distributions come equipped with all the tools they require to carry out their research (such as Kali Linux.) 
 
 Today, virtualisation is common practice in information technology architecture, as it allows us to dynamically allocate and further utilise underlying portions of physical hardware to multiple instances (computers.) And ultimately, helps drastically reduce the cost of large-scale infrastructure.
-
-### Contents
-0. [Prerequisites](#prerequisites)
-    - [Installing VirtualBox](#-virtualbox)
-    - [Downloading Windows 10 Enterprise (Evaluation)](#-windows-10-enterprise-evaluation)
-    - [Downloading Windows Server 2019 (Evaluation)](#-windows-server-2019-evaluation)
-1. [Setup & Installation of Windows Server](#1---setup--installation-of-windows-server)
-2. [Installing VirtualBox Guest Additions](#2---installing-virtualbox-guest-additions)
-3. [Configuring Server Network Adapters](#3---configuring-server-network-adapters)
-4. [Installing Active Directory Domain Services](#4---installing-active-directory-domain-services)
-5. [Create Domain Administrator Account](#5---create-domain-administrator-account)
-6. [Installing & Configuring RAS/NAT](#6---installing--configuring-rasnat)
-7. [Installing & Configuring DHCP Server](#7---installing--configuring-dhcp-server)
-8. [Disable Internet Browsing Security Configuration](#8---disable-internet-browsing-security-configuration)
-9. [PowerShell Automation & Scripting](#9---powershell-automation--scripting)
-10. [Setting Up Windows 10 User Environment](#10---setting-up-windows-10-user-environment)
 
 ## Prerequisites
 To setup this virtual environment, it's recommended your host machine meets the following requirements:
@@ -64,10 +66,14 @@ In addition, we'll need to download and install VirtualBox - the virtualisation 
 - **Windows 10 Enterprise Evaluation ISO** (download below.)
 - **Windows Server 2019 Evaluation ISO** (download below.)
 
-### ⚙️ VirtualBox
+<br />
+
+### VirtualBox
 You can download and install the latest version of VirtualBox [here](https://www.virtualbox.org/wiki/Downloads), or use the link below.
 
 - https://www.virtualbox.org/wiki/Downloads
+
+<br />
 
 ### 💿 Windows 10 Enterprise Evaluation
 The next step is to grab our fresh evaluation copy of Windows 10. Visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise) and simply click "download the ISO".
@@ -80,7 +86,7 @@ This will bring you to a registration page so we can get our free trial. Complet
 
 > Tip: If you don't want to enter your personal information, use a [name generator](https://www.fakenamegenerator.com/). You won't need to verify the email address!
 
-<br />
+<br /><br />
 
 ### 💿 Windows Server 2019 Evaluation
 Lastly, to download the Server 2019 ISO, visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019).
@@ -89,7 +95,7 @@ Lastly, to download the Server 2019 ISO, visit the Microsoft product page [here]
 
 Again, complete the short form and click the download button.
 
-<br />
+<br /><br />
 
 #### Extra Sidenote
 To prevent any ambiguity, it's also a good idea to rename our image files to distinguishable filenames, and ensuring they're stored in the same directory.
@@ -573,48 +579,52 @@ We now have a domain controller setup with an administrator account - but no reg
 ### Namelists
 To begin, you'll need to download [this list](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/names.txt) of randomly generated names.
 
-> This list was generated using Python and a collection of 📜 [Wordlists](https://github.com/tarranprior/Wordlists).
-
 ### PowerShell Script
 In addition, download this PowerShell script [here](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/Generate_Users.ps1) (don't forget to leave a star! ⭐) or you can copy the script below and paste in it a text editor, saving as `generate-users.ps1`.)
 
 This is what we're using to create user accounts from the list of names.
 
 ```powershell
-$USER_FIRST_LAST_LIST = Get-Content .\names.txt
-New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
+# Get contents of text file and store names in a new variable called "USER_LIST".
+$NAMES_LIST = Get-Content .\Names.txt
 
-foreach ($n in $USER_FIRST_LAST_LIST) {
-    $first = $n.Split(" ")[0].ToLower()
-    $last = $n.Split(" ")[1].ToLower()
+# Create an OU for new users.
+New-ADOrganizationalUnit -Name "New Users" -ProtectedFromAccidentalDeletion $false
+
+# Enumerate through the list of users.
+foreach ($n in $NAMES_LIST) {
+    $first = $n.Split(" ")[0]
+    $last = $n.Split(" ")[1]
     $username = "$($first.Substring(0,1))$($last)".ToLower()
     $password = ConvertTo-SecureString "!password1" -AsPlainText -Force
 
-    New-AdUser -AccountPassword $password `
+    # Create user account with given properties.
+    New-ADUser -AccountPassword $password `
                -GivenName $first `
                -Surname $last `
-               -DisplayName $username `
-               -Name $username `
+               -DisplayName $n `
+               -Name $n `
+               -SamAccountName $username `
                -EmployeeID $username `
                -PasswordNeverExpires $true `
-               -Path "ou=_USERS,$(([ADSI]`"").distinguishedName)" `
+               -Path "OU=New Users,$(([ADSI]`"").distinguishedName)" `
                -Enabled $true
-    Write-Host "User account $($username) is now active."
+
+    #  Print output to the terminal.
+    Write-Host "$n (User Account: $username) is now active."
 }
 ```
 
-> Download a [zip]() with both files.<br />
-> For further explanation on this script, visit the [README](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Generate_Users/README.md).
+> ### 📢 Update
+> This script has been updated since writing this guide. So if you see some differences in the screenshots - don't fret! Everything will still work as it should.
 
 <br />
 
-**Step 1**: Once you have both files, copy them over to your virtual machine. Create a new folder in a directory of your choice to store the files.
+**Step 1**: Once you have both files, copy them over to your virtual machine (or download them directly to the VM.) Create a new folder in a directory of your choice to store the files.
 
-> To save yourself some time, just download them directly to your virtual machine.<br />
+> **Optional**: Open `names.txt` and add your full name in the first line. This will create your own user account, so you're able to access it later.
 
 <br />
-
-**Optional**: Open `names.txt` and add your full name in the first line. This will create your own user account, so you're able to access it later.
 
 Since I've already used my name for the domain admin, I'll use another that's easy to remember.
 

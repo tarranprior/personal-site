@@ -73,11 +73,19 @@ export default function Home() {
           <StyledList>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/disclone" target="_blank" rel="noreferrer">Disclone/</a></h4>
-              <p>Disclone is a self-hostable bot with Rclone integration, Gclone support and Google Drive automation utilities for collaborative cloud storage management.</p>
+              <p>Disclone is a self-hostable bot with <b>Rclone</b> integration, <b>Gclone</b> support and <b>Google Drive</b> automation utilities for collaborative cloud storage management.</p>
+            </li>
+            <li>
+              <h4>📁 <a href="https://github.com/HelpdeskBot" target="_blank" rel="noreferrer">HelpdeskBot/</a></h4>
+              <p><i>Coming soon!</i> The go-to bot for help desk professionals and enthusiasts.</p>
+            </li>
+            <li>
+              <h4>✈️ <a href="https://github.com/tarranprior/blackstar" target="_blank" rel="noreferrer">Blackstar/</a></h4>
+              <p>An asynchronous and lightweight <b>OSINT</b> tool which searches for usernames across common social networking platforms. Inspired by Sherlock.</p>
             </li>
             <li>
               <h4>📁 <a href="https://github.com/tarranprior/runebot" target="_blank" rel="noreferrer">Runebot/</a></h4>
-              <p>Runebot is a feature rich Discord tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
+              <p>Runebot is a feature rich <b>Discord</b> tool which scrapes, pulls and displays information about the popular MMORPG Old School RuneScape. Built with Python and Beautiful Soup 4.</p>
             </li>
           </StyledList>
           <h2>Index of /public/recent/Writing/</h2>

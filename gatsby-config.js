@@ -64,7 +64,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'static/favicon.png' // Relative to the project's root folder
+        icon: 'static/favicon.png'
       },
     },
     `gatsby-plugin-offline`,
