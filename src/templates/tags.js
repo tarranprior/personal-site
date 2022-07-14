@@ -12,7 +12,6 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
-      totalCount
       nodes {
         frontmatter {
           title
@@ -25,6 +24,7 @@ export const pageQuery = graphql`
     tags: allMdx {
       group(field: frontmatter___tags) {
         fieldValue
+        totalCount
       }
     }
   }
@@ -49,6 +49,7 @@ function Tag({ pageContext, data }) {
   return (
     <>
       <Head />
+      <div class="stand-with-ukr"></div>
       <div class="container">
         <Layout>
           <p class="small"><Link to="/">../ Parent Directory</Link></p>
@@ -79,7 +80,7 @@ function Tag({ pageContext, data }) {
             {data.tags.group.map((tag) => {
               return (
                 <li>
-                  <Link to={`/tags/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link>
+                  <Link to={`/tags/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue} ({tag.totalCount})</Link>
                 </li>
               )
           })}

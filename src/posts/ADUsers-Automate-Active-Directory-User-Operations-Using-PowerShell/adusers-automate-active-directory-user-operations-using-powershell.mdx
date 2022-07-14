@@ -13,7 +13,7 @@ In Active Directory environments, Microsoft provides us with **ADUC** for perfor
 
 But by using PowerShell, it allows system administrators to automate many of the repetitive tasks we commonly perform.
 
-This post highlights some of the cool things you can do in PowerShell, and how we can work them together to automate lengthy, trivial tasks with just a few lines of basic code.
+This post highlights some of the things you can do in PowerShell, and how we can work basic commands together to automate lengthy, trivial tasks with just a few lines of basic code.
 
 ## Prerequisites
 In order to use these PowerShell commands in an Active Directory environment, there are some requirements to consider:
@@ -36,7 +36,7 @@ PS C:/> Get-ADUser `
         -Properties *
 ```
 
-> Here, we're using the `-Identity` parameter to specify an identifier (in this case, the username "jsmith").<br /><br />
+> Here, we're using the `-Identity` parameter to specify an identifier (in this case, the username "tprior").<br /><br />
 > We then use the `-Properties` parameter along with an asterix **wildcard** character (`*`) to pull all properties for that user.
 
 <br />
@@ -86,7 +86,7 @@ PS C:/> Get-ADUser `
 To learn more about [`Get-ADUser`](https://docs.microsoft.com/en-us/powershell/module/activedirectory/get-aduser?view=windowsserver2019-ps), visit the official [Microsoft documentation](https://docs.microsoft.com/en-us/powershell/module/activedirectory/get-aduser?view=windowsserver2019-ps).
 
 ## New-ADUser
-The next cmdlet we're going to explore is `New-ADUser`, which allows us to create new user accounts with just about every attribute we need in Active Directory.
+The next cmdlet we're going to explore is [`New-ADUser`](https://docs.microsoft.com/en-us/powershell/module/activedirectory/new-aduser?view=windowsserver2022-ps), which allows us to create new user accounts with just about every attribute we need in Active Directory.
 
 For example. let's say we want to create a new user in the "Users" OU. We also want to specify their full name, department, a description and of course a password. Lastly, we want them to change their password when they next login.
 
@@ -112,7 +112,7 @@ PS C:/> New-ADUser `
 <br />
 
 ## Add-ADGroupMember
-So now we're familiar with adding and modifying user accounts, but what about adding users to groups? Introducing `-Add-ADGroupMember`.
+So now we're familiar with adding and modifying user accounts, but what about adding users to groups? Introducing [`Add-ADGroupMember`](https://docs.microsoft.com/en-us/powershell/module/activedirectory/add-adgroupmember?view=windowsserver2022-ps).
 
 Here's how we add our newly created user "Max Headroom" to a group called "AI":
 ```powershell
@@ -152,7 +152,7 @@ Then, open **PowerShell ISE** so we can compose our script. You may also need to
     New-ADOrganizationalUnit -Name "New Employees" -ProtectedFromAccidentalDeletion $false
     ```
 
-3. Then we enumerate through the list of users from the .csv and specify the attributes in a new set of variables such as `first`, `last` and `office`:
+3. Then we enumerate through the list of users from the .csv and specify the attributes in a new set of variables such as `first`, `last`, `office` and `password`:
     ```powershell
     # Enumerate through the list of users.
     foreach ($u in $USER_LIST) {

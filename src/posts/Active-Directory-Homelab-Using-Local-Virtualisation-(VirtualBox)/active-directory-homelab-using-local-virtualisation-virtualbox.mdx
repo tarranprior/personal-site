@@ -19,24 +19,6 @@ This guide demonstrates how to **setup**, **install** and **configure** a full-b
 
 I'll be walking through some core network components and services such as **DHCP**, **RAS/NAT** and **Domain Services (AD DS)**, as well as basic fundamentals of computer networking and enterprise-level infrastructure.
 
-### Contents
-0. **[Prerequisites](#prerequisites)**
-    - **[Installing VirtualBox](#-virtualbox)**
-    - **[Downloading Windows 10 Enterprise (Evaluation)](#-windows-10-enterprise-evaluation)**
-    - **[Downloading Windows Server 2019 (Evaluation)](#-windows-server-2019-evaluation)**
-1. **[Setup & Installation of Windows Server](#1---setup--installation-of-windows-server)**
-2. **[Installing VirtualBox Guest Additions](#2---installing-virtualbox-guest-additions)**
-3. **[Configuring Server Network Adapters](#3---configuring-server-network-adapters)**
-4. **[Installing Active Directory Domain Services](#4---installing-active-directory-domain-services)**
-5. **[Create Domain Administrator Account](#5---create-domain-administrator-account)**
-6. **[Installing & Configuring RAS/NAT](#6---installing--configuring-rasnat)**
-7. **[Installing & Configuring DHCP Server](#7---installing--configuring-dhcp-server)**
-8. **[Disable Internet Browsing Security Configuration](#8---disable-internet-browsing-security-configuration)**
-9. **[PowerShell Automation & Scripting](#9---powershell-automation--scripting)**
-10. **[Setting Up Windows 10 User Environment](#10---setting-up-windows-10-user-environment)**
-
-<br />
-
 ## What is Active Directory?
 Before we begin, here's a quick summary of both Active Directory and virtualisation.
 
@@ -59,7 +41,7 @@ Today, virtualisation is common practice in information technology architecture,
 To setup this virtual environment, it's recommended your host machine meets the following requirements:
 - **Processor**: 1.4 GHz or faster 64-bit supported processor.
 - **RAM**: 2 GB +
-- **HDD**: 100 GB + of available free disk space (*2 x* 50 GB +).
+- **HDD**: 50 GB + of available free disk space.
 
 In addition, we'll need to download and install VirtualBox - the virtualisation software we're using, as well as the operating system evaluation files.
 - **Oracle VM VirtualBox** (Latest version. You can also use alternative software such as VMWare.)
@@ -73,8 +55,6 @@ You can download and install the latest version of VirtualBox [here](https://www
 
 - https://www.virtualbox.org/wiki/Downloads
 
-<br />
-
 ### 💿 Windows 10 Enterprise Evaluation
 The next step is to grab our fresh evaluation copy of Windows 10. Visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise) and simply click "download the ISO".
 
@@ -82,11 +62,9 @@ The next step is to grab our fresh evaluation copy of Windows 10. Visit the Micr
 
 This will bring you to a registration page so we can get our free trial. Complete the short form and hit the download button.
 
-<br />
-
 > Tip: If you don't want to enter your personal information, use a [name generator](https://www.fakenamegenerator.com/). You won't need to verify the email address!
 
-<br /><br />
+<br />
 
 ### 💿 Windows Server 2019 Evaluation
 Lastly, to download the Server 2019 ISO, visit the Microsoft product page [here](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019).

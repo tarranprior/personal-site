@@ -81,6 +81,7 @@ function Blog({ data }) {
   return (
     <>
       <Head title={data.mdx.frontmatter.title} />
+      <div class="stand-with-ukr"></div>
       <div class="container">
         <Layout>
           <p class="small"><Link to="/">../ Parent Directory</Link></p>

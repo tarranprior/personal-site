@@ -22,6 +22,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Roboto Mono', monospace;
     background-color: #dfe6e9;
+    .stand-with-ukr {
+      width: 100% !important;
+      height: 5px;
+      text-align:center;
+      border-top: 5px solid;
+      border-image:   linear-gradient(to right, #0057b7 50%, 	#ffd700 50%) 5;
+    }
   }
   body::-webkit-scrollbar {
     width: 12px;
@@ -39,6 +46,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     padding: 1rem;
     max-width: 800px;
+    @media (max-width: 540px) {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
   }
 
   h1 {
@@ -63,7 +74,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 14px;
   }
   .metadata {
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
     p {
       margin-right: .75rem;
       display: inline;
