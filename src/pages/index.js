@@ -80,6 +80,8 @@ export default function Home() {
               <li><a href="https://github.com/tarranprior" target="_blank" rel="noreferrer">GitHub</a></li>
               <li>|</li>
               <li><a href="mailto:tarranprior@protonmail.com" target="_blank" rel="noreferrer">Email</a></li>
+              <li>|</li>
+              <li><a href="https://linkedin.com/in/tarranprior" target="_blank" rel="noreferrer">LinkedIn</a></li>
             </ul>
             <h3>Currently:</h3>
             <StyledCurrentList>

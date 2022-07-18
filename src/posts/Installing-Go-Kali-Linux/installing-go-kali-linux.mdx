@@ -9,19 +9,15 @@ tags: ["Go", "Linux"]
 published: true
 ---
 
-![Installing Go in Kali Linux](./kali-golang.png)
+[Go](https://go.dev/) (also referred to as **Golang**) is a statically typed and compiled programming language. Syntactically similar to C, Go is fast, easy to learn and was developed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.
 
 <br />
 
-[Go](https://go.dev/) (also referred to as **Golang**) is a statically typed and compiled programming language. Syntactically similar to C, Go is fast, easy to learn and was developed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.
+![Installing Go in Kali Linux](./golang-feature.png)
 
-## Contents
-0. **[Update System](#update-system)**
-1. **[Remove Existing Versions of Go](#remove-existing-versions-of-go)**
-2. **[Downloading Go](#downloading-go)**
-3. **[Set The $PATH Variables](#set-the-path-variables)**
-4. **[Further Resources](#further-resources)**
+<br />
 
+This guide demonstrates how to install Go in Kali Linux in just a few simple steps.
 
 ## Update System
 Before proceeding to a new installation of Go, it's a good idea to first check our system is up to date.
@@ -74,6 +70,8 @@ sudo vim ~/.bash_profile
 
 > Note: If you're using zsh as your default shell, you should open `~/.zshrc`.
 
+<br />
+
 This will open the file with write access. Simply add these lines, save the file and exit.
 ```bash
 export PATH=$PATH:/usr/local/go/bin
@@ -81,16 +79,22 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 ```
 
+<br />
+
 Lastly, refresh the configuration file:
 ```bash
 source ~/.bash_profile
 ```
 
+<br />
+
 And just like that, you're all set! To confirm Go is working correctly, run `go version`:
 ```bash
 go version
-> go version go1.18.2 linux/amd
+# > go version go1.18.2 linux/amd
 ```
+
+<br />
 
 ## Further Resources
 If you'd like to learn more about Go, you can visit the documentation below.

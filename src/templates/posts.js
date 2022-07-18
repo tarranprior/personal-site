@@ -105,7 +105,6 @@ function Blog({ data }) {
           <StyledDiv>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </StyledDiv>
-          <p class="small"><Link to="/">../ Parent Directory</Link></p>
         </Layout>
       </div>
     </>

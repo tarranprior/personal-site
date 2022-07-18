@@ -24,10 +24,9 @@ const GlobalStyles = createGlobalStyle`
     background-color: #dfe6e9;
     .stand-with-ukr {
       width: 100% !important;
-      height: 5px;
       text-align:center;
       border-top: 5px solid;
-      border-image:   linear-gradient(to right, #0057b7 50%, 	#ffd700 50%) 5;
+      border-image: linear-gradient(to right, #0057b7 50%, 	#ffd700 50%) 5;
     }
   }
   body::-webkit-scrollbar {

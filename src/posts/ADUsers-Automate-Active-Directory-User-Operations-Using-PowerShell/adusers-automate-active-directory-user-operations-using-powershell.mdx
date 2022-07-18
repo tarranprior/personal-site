@@ -39,7 +39,7 @@ PS C:/> Get-ADUser `
 > Here, we're using the `-Identity` parameter to specify an identifier (in this case, the username "tprior").<br /><br />
 > We then use the `-Properties` parameter along with an asterix **wildcard** character (`*`) to pull all properties for that user.
 
-<br />
+<br /><br />
 
 The `-Identity` parameter accepts the following identifiers:
 - A distinguished name
@@ -57,7 +57,7 @@ PS C:/> Get-ADUser `
 > The `-Filter` parameter accepts a `<FilterComponentList>`. In this case, we're asking for all users with a surname matching "Smith", using the `-like` comparison operator.<br /><br />
 > For more information on Comparison Operators, see [this](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_comparison_operators?view=powershell-7.2) page.
 
-<br />
+<br /><br />
 
 Lastly, let's look at how to select specific property values (as opposed to all properties using the asterix which can get messy.)
 
@@ -81,7 +81,7 @@ PS C:/> Get-ADUser `
 > Again, we use the `-Filter` parameter but this time, we specify an asterix character (`*`).<br /><br />
 > In addition, we've added the `-SearchBase` parameter, which allows us to provide a specific path. In this case, we're searching the OU called "Users".
 
-<br /><br />
+<br />
 
 To learn more about [`Get-ADUser`](https://docs.microsoft.com/en-us/powershell/module/activedirectory/get-aduser?view=windowsserver2019-ps), visit the official [Microsoft documentation](https://docs.microsoft.com/en-us/powershell/module/activedirectory/get-aduser?view=windowsserver2019-ps).
 
@@ -124,17 +124,21 @@ PS C:/> Add-ADGroupMember `
 > Similarly to `Get-ADUser`, we use the `-Identity` parameter to first select a group (in this case "AI"), and then use `-Members` to specify the member(s) we want to add to the group.<br /><br />
 > If you're on the ball, you'll remember that the `-Identity` parameter only accepts a few identifiers. Using the identifier "*Max Headroom*" won't work, so we specify the `SamAccountName` instead.
 
-## ⚙️ Automation Time
+<br />
+
+## Let's Automate
 Now the fun stuff! We've explored the basics of user operations in PowerShell, so let's apply this knowledge and put it into action. But first, a scenario:
 
 <br />
 
-> Imagine you're at work, it's nearly time to go home and you're officially *done for the day*, it's been a long one to say the least. Then in the corner of your eye you see a new email from your boss. *Oh shit.*<br /><br />> "Hey, can you make sure that job is done before you go?"<br /><br />
-> You check your inbox with absolute despair and *bam* there it is - an email from HR. You've been given a .csv and asked to kindly provision 100+ new sales employee accounts, adding each to their respective offices and group.<br /><br />*Fml.*
+> Imagine you're at work, it's nearly time to go home and you're officially *done for the day*, it's been a long one to say the least. Then in the corner of your eye you see a new email from your boss. *Here we go...*<br /><br />> "Hey, can you make sure that job is done before you go?"<br /><br />
+> You check your inbox with absolute despair and *bam* there it is - an email from HR. You've been given a .csv and asked to kindly provision 100+ new sales employee accounts, adding each to their respective offices and group. *Fml.*
 
 <br /><br />
 
-But don't worry - PowerShell has got you, remember?! Let's kick some AD-Ass. 🦸
+But don't worry - PowerShell has got you, remember?!
+
+Let's kick some AD-Ass. 🦸
 
 We're going to write a script that does this all for us. For this, we'll need a .csv file which you can [download here](https://github.com/tarranprior/DevOps/tree/main/Azure/Scripting/PowerShell/Active-Directory/Create_Users_From_CSV). This file contains all of the information we need for each new user (or employee.)
 
